@@ -6,60 +6,200 @@ import flammkuchen as fl
 import tifffile as tiff
 import numpy as np
 from progress.bar import Bar
-
-
-"""
-To use as a script insert the arguments in the following order:
-
-    1 - file name to be used for saving    <save_name>_PIC#
-
-    2 - path to the folder containing the h5 file to convert (there must me only on h5 file!)
-"""
+from pathlib import Path
 
 
 
-def get_h5_file(path):
 
-    """
-    Inputs: file location
-    
-    Returns: h5 file path
-    """
+MODES = ("LFM", "DEFAULT")  #add here any mode you'd like to create
 
-    file = None
-    for filename in os.listdir(path):
-        if "h5" in filename:
-            file = os.path.join(path,filename)
+
+
+
+
+class H5File:
+    def __init__(self, path, save_name, mode ="LFM"):
+        
+        # checks for the data
+        if not os.path.exists(Path(path)):
+            raise FileNotFoundError("Location doesn't seem to exist: ", Path(path))
+        
+        if "h5" not in path:
+            raise FileNotFoundError("No h5 file found, update file location: ", Path(path))
+        
+        if not isinstance(save_name, str):
+            raise ValueError("Save name must be a string and not: ", type(save_name))
             
-    if file is None:
-        raise FileNotFoundError("Couldn't find any h5 file"\
-            " in the given location: {}", path)
-    else:
-        return file
+        if mode not in MODES:
+            raise ValueError("Mode not found! Here's the list of supported modes: ", MODES)
+
+            
+        # save attributes
+        self.path = Path(path)
+        
+        self.save_name = save_name
+        
+        self.mode = mode
+        
+        self.data, self.metadata  = self.load_data()
+        
+        
+        
+        
+    def load_data(self):
+        """
+        loads only the data from the H5 file
+        it calls different functions depending on the mode:
+        in this way it can be customized for any kind of h5 structure
+        
+        """
+        if self.mode == "DEFAULT":
+            try:
+                data = fl.load(self.path)
+
+            except: 
+                raise SystemError("Couldn't load file!")
+            
+            
+            metadata = {}
+            
+            for key in data:
+                if key != "Data":
+                    try:
+                        metadata[key] = str(data[key])
+                    except:
+                        print("couldn't interpret {} as metadata".format(key))
+            
+            return data['Data'], metadata
+       
+        ### LFM mode ###
+        
+        if self.mode == "LFM":
+            
+            try:
+                return self.load_LFM()
+            except: 
+                raise SystemError("Couldn't load file in LFM mode!")
+            
+        ############### add here any custom call to a mode specific function ##################
+#         if self.mode == "<your mode>":
+#             try:
+#                 return <your loading function>()
+#             except: 
+#                 raise SystemError("Couldn't load file in <your mode> mode!")
+        
+        
     
-def load_h5(file):
+       
+        
+    def load_LFM(self):
+        """
+        specific load function to load the h5 file data
+        """
+        data = fl.load(self.path)
+        
+        metadata = {}
+        
+        try:
+            metadata['motorData'] = data['motorData']
+            metadata['metadata'] = data['metadata']
+            metadata['img_time'] = data['img_time']
 
+            #fix - not writable in json
+            metadata['metadata']['ranges'] = str(meta['ranges'])
+            metadata['metadata']['steps'] = str(meta['steps'])
+            metadata['metadata']['fish_n'] = str(meta['fish_n'])
+            
+            
+        except: 
+            print("Couldn't load metadata correctly!")
+            
+        return data['Data'],metadata
+    
+    
+    def convert(self):
+        """
+
+        Saves each picture in a single tiff file with metadata
+        """
+        
+
+        if self.mode == "DEFAULT":
+                
+            try:
+                L = len(self.data)
+
+            except: 
+                raise ValueError("Data doesn't have length!")
+            
+            try:
+                bar = Bar('Saving:', max = L)
+                for i, im in enumerate(self.data):
+
+                    name = self.save_name + "_Pic" +  str(i) +'.tif'
+
+                    save_tiff(im, self.metadata, self.path, name)   
+                    bar.next()
+                print("Conversion completed")
+            except: 
+                raise ValueError("Couldn't save files!")
+    
+    
+        if self.mode == "LFM":
+            try:
+                self.convert_LFM()
+                print("Conversion completed")
+            except: 
+                raise ValueError("Couldn't save LFM files!")     
+                
+                
+    def convert_LFM(self):
+        try:
+            L = len(self.data)
+
+        except: 
+            raise ValueError("Data doesn't have length!")
+            
+        try:
+            bar = Bar('Saving:', max = L)
+            
+            for i, im in enumerate(self.data):
+
+                name = save_pre + "_Pic" +  str(i) +'.tif'
+                   
+                meta =  {'setup': metadata['metadata'],
+                            'motors': metadata['motorData'][i],
+                            'stamps': [metadata['img_time'][0][i],metadata['img_time'][1][i]]
+                            } 
+                    
+                    
+                save_tiff(im, meta, self.path, name)   
+                bar.next()
+            print("Conversion completed")
+        except: 
+            raise ValueError("Couldn't save files!")
+    
+
+                
+    
+    ### UTILS ###
+    
+    
+    
+def save_tiff(image, metadata, path, name):
     """
-    Gets the location and loads the data correctly (changes some dictionary)
+    Generate save name and save tiff file
     """
+    folder = "tiff"
+    save_location = os.path.join(os.path.dirname(path), folder)
 
-    if os.path.exists(file):
-        data = fl.load(file)
+    if not os.path.exists(save_location):
+        os.mkdir(save_location)
 
-        imgs = data['Data']
-        motor_meta = data['motorData']
-        meta = data['metadata']
-        t_stamps = data['img_time']
+    save_location = os.path.join(save_location, name)
 
-        #fix - not writable in json
-        meta['ranges'] = str(meta['ranges'])
-        meta['steps'] = str(meta['steps'])
-        meta['fish_n'] = str(meta['fish_n'])
-
-        return imgs,motor_meta,t_stamps,meta
-
-    else:
-        raise FileNotFoundError("Locarion doesn't seem to exist: {}", file)
+    tiff.imwrite(save_location, image, bigtiff=False, compression='zlib',metadata=metadata)
+        
 
 
 
@@ -70,76 +210,32 @@ def get_args():
     args = sys.argv
 
     if len(args) <3:
-        raise FileNotFoundError("Input missing: save_prefix, location")
+        raise FileNotFoundError("Input missing: save_prefix, location, (optional) mode")
     else:
         if args[2] == ".":
             path = os.getcwd()
         else:
             path = args[2]
+        
+        if len(args) == 3:
+            return  args[1], path
+        
+        if len(args) == 4:
+            return   path, args[1], args[3]
 
-        return  args[1], path
-
-
-def save_tiff(image, metadata, path, name):
-    """
-    Generate save name and save tiff file
-    """
-    
-    save_location = os.path.join(path, "single_tiff")
-    if not os.path.exists(save_location):
-        os.mkdir(save_location)
-
-
-    save_location = os.path.join(save_location, name)
-
-    tiff.imwrite(save_location, image, bigtiff=False, compression='zlib',metadata=metadata)
-                
-
-
-def process_h5(imgs,motor_meta,t_stamps,meta, path, save_pre):
-    """
-    inputs:
-        - imgs = list of images
-        - motor_meta = stage motors metadata
-        - t_stamps = time stamps before and after the picture
-        - meta = general settings
-        - path = location where to save
-        - save_pre = save name
-
-    Saves each picture in a single tiff file with metadata
-    """
-    bar = Bar('Saving Pic:', max = len(imgs))
-
-    for i, im in enumerate(imgs):
-
-        #get metadata
-        metadata =  {'setup': meta,
-                    'motors': motor_meta[i],
-                    'stamps': [t_stamps[0][i],t_stamps[1][i]]
-                    }
-
-        name = save_pre + "_Pic" +  str(i) +'.tif'
-
-        save_tiff(im, metadata, path, name)   
-        bar.next()
-
-
-
-
+        
 
 if __name__ == "__main__":
 
     try:
-        save_pre, path = get_args()
-
-        print("Getting file location")
-        file = get_h5_file(path)
+        arg_list = get_args()
 
         print("Loading")
-        imgs,motor_meta,t_stamps,meta = load_h5(file)
-
-        print("Start Processing Images:")
-        process_h5(imgs,motor_meta,t_stamps,meta, path, save_pre)
+        file = H5File(*arg_list)
+        
+        print("Start Converting")
+        file.convert()
 
     except:
         raise ValueError("Coudln't save pictures!")
+
