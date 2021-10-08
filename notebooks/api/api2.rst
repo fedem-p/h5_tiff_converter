@@ -7,4 +7,4 @@ autosummary
    :toctree: _autosummary
    :recursive:
 
-   numpy.sum
+   numpy
