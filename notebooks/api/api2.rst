@@ -1,4 +1,4 @@
-API Reference2
+Other shit
 =============
 
 autosummary

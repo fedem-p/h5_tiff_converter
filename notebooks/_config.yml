@@ -153,14 +153,13 @@ sphinx:
     - 'sphinx.ext.napoleon'
   config:
     autosummary_generate: True
+    templates_path:
+        - '_templates'
+
+
+
+
     # autosummary_imported_members: True
-    # templates_path:
-    #     - '_templates'
-
-
-
-
-
 
 # sphinx:
 #   extra_extensions:
