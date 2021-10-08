@@ -3,3 +3,5 @@ jupytext
 sphinx_autodoc_typehints
 insegel
 karma_sphinx_theme
+sphinx-book-theme
+h5tiff
