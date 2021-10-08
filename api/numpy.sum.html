@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2D2D2D" />
+  
+  <title>Python :: numpy.sum</title>
+  
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../_static/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../_static/img/favicon-16x16.png">
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+
+  <link rel="stylesheet" href="../_static/css/insegel.css"/>
+
+  <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'',
+        VERSION:'',
+        LANGUAGE:'None',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: ''
+    };
+  </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../None"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script type="text/javascript" src="../None"></script>
+    <script type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+
+  <script src="https://email.tl.fortawesome.com/c/eJxNjUEOgyAQAF8jR7Kw6wIHDh7sP1Cw2mgxgmn6-3JsMqc5zEQfE8dkxOY1KKMUOI3ACFKRJpSW2AAp7ontYIaxI6i7XPJVwyeVfCQ550Os3jLrGSNOLgbdAy6s0PBk2TFNjEbsfq31LB0OnX407pJa5v2faRadwSW63mn5KuLyR9j2tgx3zecanl-55R_-jjPs"></script>
+
+</head>
+
+<body>
+  <div id="insegel-container">
+    <header>
+      <div id="logo-container">
+          
+          <a href="../index.html"><img src="../_static/img/logo.svg"></a>
+          
+
+      </div>
+      <div id="project-container">
+        <h1>Python Documentation</h1>
+      </div>
+    </header>
+
+    <div id="content-container">
+
+      <div id="main-content-container">
+        <div id="main-content-header">
+          <h1>numpy.sum</h1>
+        </div>
+        <div id="main-content">
+          
+  <div class="section" id="numpy-sum">
+<h1>numpy.sum<a class="headerlink" href="#numpy-sum" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="numpy.sum">
+<code class="sig-prename descclassname"><span class="pre">numpy.</span></code><code class="sig-name descname"><span class="pre">sum</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">axis=None</span></em>, <em class="sig-param"><span class="pre">dtype=None</span></em>, <em class="sig-param"><span class="pre">out=None</span></em>, <em class="sig-param"><span class="pre">keepdims=&lt;no</span> <span class="pre">value&gt;</span></em>, <em class="sig-param"><span class="pre">initial=&lt;no</span> <span class="pre">value&gt;</span></em>, <em class="sig-param"><span class="pre">where=&lt;no</span> <span class="pre">value&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#numpy.sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of array elements over a given axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>array_like</em>) – Elements to sum.</p></li>
+<li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>tuple of ints</em><em>, </em><em>optional</em>) – <p>Axis or axes along which a sum is performed.  The default,
+axis=None, will sum all of the elements of the input array.  If
+axis is negative it counts from the last to the first axis.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.7.0.</span></p>
+</div>
+<p>If axis is a tuple of ints, a sum is performed on all of the axes
+specified in the tuple instead of a single axis or all the axes as
+before.</p>
+</p></li>
+<li><p><strong>dtype</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v1.21)"><em>dtype</em></a><em>, </em><em>optional</em>) – The type of the returned array and of the accumulator in which the
+elements are summed.  The dtype of <cite>a</cite> is used by default unless <cite>a</cite>
+has an integer dtype of less precision than the default platform
+integer.  In that case, if <cite>a</cite> is signed then the platform integer
+is used while if <cite>a</cite> is unsigned then an unsigned integer of the
+same precision as the platform integer is used.</p></li>
+<li><p><strong>out</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>ndarray</em></a><em>, </em><em>optional</em>) – Alternative output array in which to place the result. It must have
+the same shape as the expected output, but the type of the output
+values will be cast if necessary.</p></li>
+<li><p><strong>keepdims</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – <p>If this is set to True, the axes which are reduced are left
+in the result as dimensions with size one. With this option,
+the result will broadcast correctly against the input array.</p>
+<p>If the default value is passed, then <cite>keepdims</cite> will not be
+passed through to the <cite>sum</cite> method of sub-classes of
+<cite>ndarray</cite>, however any non-default value will be.  If the
+sub-class’ method does not implement <cite>keepdims</cite> any
+exceptions will be raised.</p>
+</p></li>
+<li><p><strong>initial</strong> (<em>scalar</em><em>, </em><em>optional</em>) – <p>Starting value for the sum. See <cite>~numpy.ufunc.reduce</cite> for details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.15.0.</span></p>
+</div>
+</p></li>
+<li><p><strong>where</strong> (<em>array_like of bool</em><em>, </em><em>optional</em>) – <p>Elements to include in the sum. See <cite>~numpy.ufunc.reduce</cite> for details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.17.0.</span></p>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>sum_along_axis</strong> – An array with the same shape as <cite>a</cite>, with the specified
+axis removed.   If <cite>a</cite> is a 0-d array, or if <cite>axis</cite> is None, a scalar
+is returned.  If an output array is specified, a reference to
+<cite>out</cite> is returned.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">ndarray</a></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.sum.html#numpy.ndarray.sum" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.sum</span></code></a></dt><dd><p>Equivalent method.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">add.reduce</span></code></dt><dd><p>Equivalent functionality of <cite>add</cite>.</p>
+</dd>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html#numpy.cumsum" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cumsum</span></code></a></dt><dd><p>Cumulative sum of array elements.</p>
+</dd>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.trapz.html#numpy.trapz" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trapz</span></code></a></dt><dd><p>Integration of array values using the composite trapezoidal rule.</p>
+</dd>
+</dl>
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.average.html#numpy.average" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average</span></code></a></p>
+</div>
+<p class="rubric">Notes</p>
+<p>Arithmetic is modular when using integer types, and no error is
+raised on overflow.</p>
+<p>The sum of an empty array is the neutral element 0:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([])</span>
+<span class="go">0.0</span>
+</pre></div>
+</div>
+<p>For floating point numbers the numerical precision of sum (and
+<code class="docutils literal notranslate"><span class="pre">np.add.reduce</span></code>) is in general limited by directly adding each number
+individually to the result causing rounding errors in every step.
+However, often numpy will use a  numerically better approach (partial
+pairwise summation) leading to improved precision in many use-cases.
+This improved precision is always provided when no <code class="docutils literal notranslate"><span class="pre">axis</span></code> is given.
+When <code class="docutils literal notranslate"><span class="pre">axis</span></code> is given, it will depend on which axis is summed.
+Technically, to provide the best speed possible, the improved precision
+is only used when the summation is along the fast axis in memory.
+Note that the exact precision may vary depending on other parameters.
+In contrast to NumPy, Python’s <code class="docutils literal notranslate"><span class="pre">math.fsum</span></code> function uses a slower but
+more precise approach to summation.
+Especially when summing a large number of lower precision floating point
+numbers, such as <code class="docutils literal notranslate"><span class="pre">float32</span></code>, numerical errors can become significant.
+In such cases it can be advisable to use <cite>dtype=”float64”</cite> to use a higher
+precision for the output.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([0, 6])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([1, 5])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span> <span class="n">where</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([1., 5.])</span>
+</pre></div>
+</div>
+<p>If the accumulator is too small, overflow occurs:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="go">-128</span>
+</pre></div>
+</div>
+<p>You can also start the sum with a value other than zero:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="mi">10</span><span class="p">],</span> <span class="n">initial</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">15</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./api"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+        </div>
+      </div>
+
+      <div id="side-menu-container">
+
+        <div id="search" role="search">
+        <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+            <input type="text" name="q" placeholder="Search..." />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+        </form>
+</div>
+
+        <div id="side-menu" role="navigation">
+
+          
+  
+    
+  
+  
+    <ul>
+<li class="toctree-l1"><a class="reference internal" href="../001_h5_to_single_tiff.html">Conversion from a H5 file with a list of images and metadata to tif files</a></li>
+</ul>
+
+  
+
+
+        </div>
+
+        
+
+      </div>
+
+    </div>
+
+<footer>
+    <div id="footer-info">
+        <ul id="build-details">
+            
+                <li class="footer-element">
+                    
+                        <a href="../_sources/api/numpy.sum.rst" rel="nofollow"> source</a>
+                    
+                </li>
+            
+
+            
+
+            
+        </ul>
+
+        
+            <div id="copyright">
+                &copy; 2021
+            </div>
+        
+
+        <div id="credit">
+            created with <a href="http://sphinx-doc.org/">Sphinx</a> and <a href="https://github.com/Autophagy/insegel">Insegel</a>
+
+        </div>
+    </div>
+
+    <a id="menu-toggle" class="fa fa-bars" aria-hidden="true"></a>
+
+    <script type="text/javascript">
+      $("#menu-toggle").click(function() {
+        $("#menu-toggle").toggleClass("toggled");
+        $("#side-menu-container").slideToggle(300);
+      });
+    </script>
+
+</footer> 
+
+</div>
+
+</body>
+</html>

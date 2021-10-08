@@ -14,4 +14,4 @@
     :recursive:
 
     h5_2_tiff_converter
-    h5_2_tiff_converter.convert
+    numpy.sum
