@@ -159,6 +159,7 @@ sphinx:
   config:
     autosummary_generate: True
     autosummary_imported_members: True
+    html_theme: sphinx_pdj_theme
     templates_path:
         - '_templates'
     intersphinx_mapping:

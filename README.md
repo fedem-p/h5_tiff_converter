@@ -1,7 +1,5 @@
-# h5_tiff_converter
-Converter from h5 files to tiff
 
-## File converter from h5 to tiff images
+# File converter from h5 to tiff images
 
 script or notebook version.
 
