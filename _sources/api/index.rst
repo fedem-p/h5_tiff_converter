@@ -16,6 +16,7 @@ For the average user's workflows.
    :recursive:
 
    numpy.sum
+   h5tiff.save_tiff
    h5tiff
 
 
