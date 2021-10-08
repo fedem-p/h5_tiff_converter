@@ -1,22 +1,24 @@
-.. _api:
-
 API Reference
 =============
 
-Information on specific functions, classes, and methods.
+.. automodule:: numpy
+    :members:
 
 
-Modules
--------
+Func one
+--------
+.. autofunction:: numpy.sum
 
-For the average user's workflows.
+.. automodule:: h5tiff.h5tiff
+    :members:
 
-.. autosummary::
-   :toctree:
-   :recursive:
 
-   numpy.sum
-   h5tiff.save_tiff
-   h5tiff
+Func one
+--------
+.. autofunction:: h5tiff.h5tiff.save_tiff
+
+
+
+
 
 
