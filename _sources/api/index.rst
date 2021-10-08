@@ -13,5 +13,6 @@
     :toctree:
     :recursive:
 
-    h5_2_tiff_converter
+    
     numpy.sum
+    h5tiff
