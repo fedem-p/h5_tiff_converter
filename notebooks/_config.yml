@@ -15,6 +15,11 @@ execute:
 repository:
   url: https://github.com/fedem-p/h5_tiff_converter # Online location of your book
   path_to_book: notebooks # Optional path to your book, relative to the repository root
+  branch: main
+
+launch_buttons:
+    notebook_interface: "jupyterlab"
+    thebe: true
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
