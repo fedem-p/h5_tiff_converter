@@ -1,0 +1,10 @@
+- file: index
+    numbered: true
+
+  - part: Introduction
+    chapters:
+      - file: 001_h5_to_single_tiff.ipynb
+
+  - part: API
+    chapters:
+      - file: api/index
