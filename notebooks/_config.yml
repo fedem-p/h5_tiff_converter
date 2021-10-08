@@ -17,9 +17,9 @@ repository:
   path_to_book: notebooks # Optional path to your book, relative to the repository root
   branch: main
 
-launch_buttons:
-    notebook_interface: "jupyterlab"
-    thebe: true
+# launch_buttons:
+#     notebook_interface: "jupyterlab"
+#     thebe: true
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
