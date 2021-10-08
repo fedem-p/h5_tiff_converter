@@ -2,3 +2,4 @@ flammkuchen
 tifffile
 numpy
 progress
+h5tiff

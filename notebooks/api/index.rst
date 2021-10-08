@@ -20,6 +20,13 @@ Func two
 
 
 
+.. autosummary::
+   :toctree: _autosummary
+   :recursive:
+
+   numpy.sum
+   h5tiff
+   h5tiff.h5tiff
 
 
 

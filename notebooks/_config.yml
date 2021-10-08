@@ -147,8 +147,10 @@ repository:
 # Advanced and power-user settings
 sphinx:
   extra_extensions:
-  - 'sphinx.ext.autodoc'
-
+    - 'sphinx.ext.autodoc'
+    - 'sphinx.ext.autosummary'
+  config:
+    autosummary_generate: True
 
 
 
