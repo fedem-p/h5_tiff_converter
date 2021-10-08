@@ -1,4 +1,4 @@
-h5tiff.h5tiff
+﻿h5tiff.h5tiff
 =============
 
 .. automodule:: h5tiff.h5tiff
