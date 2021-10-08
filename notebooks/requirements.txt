@@ -2,3 +2,4 @@ jupyter-book
 jupytext
 sphinx_autodoc_typehints
 insegel
+karma_sphinx_theme
