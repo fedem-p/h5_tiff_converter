@@ -154,8 +154,8 @@ sphinx:
   config:
     autosummary_generate: True
     # autosummary_imported_members: True
-    templates_path:
-        - '_templates/class'
+    # templates_path:
+    #     - '_templates/class'
 
 
 
