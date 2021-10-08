@@ -149,6 +149,8 @@ sphinx:
   extra_extensions:
     - 'sphinx.ext.autodoc'
     - 'sphinx.ext.autosummary'
+    - 'sphinx.ext.viewcode'
+    - 'sphinx.ext.napoleon'
   config:
     autosummary_generate: True
 
