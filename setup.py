@@ -13,7 +13,6 @@ with open("README.md") as f:
 # https://setuptools.readthedocs.io/en/latest/setuptools.html#id9
 setup(
     name='h5tiff',
-    packages = ['h5tiff',],
     description='a flexible converter to extract tiff files from h5',
     long_description=long_description,
     long_description_content_type='text/markdown',
