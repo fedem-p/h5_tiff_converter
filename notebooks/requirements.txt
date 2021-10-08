@@ -1,8 +1,4 @@
 jupyter-book
 jupytext
 sphinx_autodoc_typehints
-insegel
-karma_sphinx_theme
-sphinx-book-theme
 furo
-h5tiff
