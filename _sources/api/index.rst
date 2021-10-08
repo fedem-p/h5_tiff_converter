@@ -1,21 +1,22 @@
 API Reference
 =============
 
-.. automodule:: numpy
-    :members:
-
 
 Func one
 --------
 .. autofunction:: numpy.sum
 
-.. automodule:: h5tiff.h5tiff
+
+
+Mod two
+--------
+.. automodule:: h5tiff
     :members:
 
 
-Func one
+Func two
 --------
-.. autofunction:: h5tiff.h5tiff.save_tiff
+.. autofunction:: h5tiff.save_tiff
 
 
 
