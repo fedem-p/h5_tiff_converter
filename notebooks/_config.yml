@@ -135,7 +135,7 @@ launch_buttons:
   notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
   jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
-  thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+  thebe                     : true  # Add a thebe button to pages (requires the repository to run on Binder)
   colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
 
 repository:
@@ -145,26 +145,26 @@ repository:
 
 #######################################################################################
 # Advanced and power-user settings
-# sphinx:
-#   extra_extensions:
-#     - sphinx.ext.viewcode
-#     - sphinx.ext.napoleon
-#     - sphinx.ext.autodoc
-#     - sphinx_autodoc_typehints
-#     - sphinx.ext.autosummary
-#     - sphinx.ext.intersphinx
-#     - sphinx.ext.coverage
-#     - sphinx.ext.inheritance_diagram
+sphinx:
+  extra_extensions:
+    - sphinx.ext.viewcode
+    - sphinx.ext.napoleon
+    - sphinx.ext.autodoc
+    - sphinx_autodoc_typehints
+    - sphinx.ext.autosummary
+    - sphinx.ext.intersphinx
+    - sphinx.ext.coverage
+    - sphinx.ext.inheritance_diagram
 
-#   config:
-#     autosummary_generate: True
-#     autosummary_imported_members: True
-#     templates_path:
-#         - '_templates'
-#     intersphinx_mapping:
-#       python:
-#         - "https://docs.python.org/3"
-#         - null
-#       numpy:
-#         - "https://docs.scipy.org/doc/numpy/"
-#         - null                  :   # key-value pairs to directly over-ride the Sphinx configuration
+  config:
+    autosummary_generate: True
+    autosummary_imported_members: True
+    templates_path:
+        - '_templates'
+    intersphinx_mapping:
+      python:
+        - "https://docs.python.org/3"
+        - null
+      numpy:
+        - "https://docs.scipy.org/doc/numpy/"
+        - null                  :   # key-value pairs to directly over-ride the Sphinx configuration
