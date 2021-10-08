@@ -27,7 +27,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-          cd C:\\Users\\Fede\\Anaconda\\h5_tiff_converter
+          cd ..
           make docs
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
