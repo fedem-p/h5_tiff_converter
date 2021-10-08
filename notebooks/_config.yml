@@ -1,15 +1,21 @@
 sphinx:
-extra_extensions: - sphinx.ext.viewcode - sphinx.ext.napoleon - sphinx.ext.autodoc - sphinx_autodoc_typehints - sphinx.ext.autosummary - sphinx.ext.intersphinx
+extra_extensions: 
+                - sphinx.ext.viewcode 
+                - sphinx.ext.napoleon 
+                - sphinx.ext.autodoc 
+                - sphinx_autodoc_typehints 
+                - sphinx.ext.autosummary 
+                - sphinx.ext.intersphinx
 
-        config:
-            autosummary_generate: True
-            autosummary_imported_members: True
-            intersphinx_mapping:
-                python:
-                    - "https://docs.python.org/3"
-                    - null
-                numpy:
-                    - "https://docs.scipy.org/doc/numpy/"
-                    - null
-    ```
-    where `intersphinx_mapping` allows the build to get the documentation online for the specified packages (i.e. `numpy`).
+config:
+    autosummary_generate: True
+    autosummary_imported_members: True
+    intersphinx_mapping:
+        python:
+            - "https://docs.python.org/3"
+            - null
+        numpy:
+            - "https://docs.scipy.org/doc/numpy/"
+            - null
+
+# where `intersphinx_mapping` allows the build to get the documentation online for the specified packages (i.e. `numpy`).
