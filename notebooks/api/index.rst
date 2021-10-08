@@ -1,11 +1,15 @@
 API Reference
 =============
 
-
-Func one
+autosummary
 --------
-.. autofunction:: numpy.sum
+.. autosummary::
+   :toctree: _autosummary
+   :recursive:
 
+   numpy
+   h5tiff
+   
 
 
 Mod two
@@ -19,14 +23,17 @@ Func two
 .. autofunction:: h5tiff.save_tiff
 
 
+Func last
+--------
+.. autofunction:: numpy.sum
 
-.. autosummary::
-   :toctree: _autosummary
-   :recursive:
 
-   numpy.sum
-   h5tiff
-   h5tiff.h5tiff
+
+
+
+
+
+
 
 
 
