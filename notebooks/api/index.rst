@@ -1,18 +1,21 @@
-    .. _api:
+.. _api:
 
-    API Reference
-    =============
+API Reference
+=============
 
-    Information on specific functions, classes, and methods.
+Information on specific functions, classes, and methods.
 
 
-    Modules
-    -------
+Modules
+-------
 
-    .. autosummary::
-    :toctree:
-    :recursive:
+For the average user's workflows.
 
-    
-    numpy.sum
-    h5tiff
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   numpy.sum
+   h5tiff
+
+

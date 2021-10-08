@@ -1,3 +1,5 @@
 # Installation
 
-pip install h5tiff
+```
+    pip install h5tiff
+```
