@@ -17,16 +17,19 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+#import package
 
-from h5_2_tiff_converter import *
+from h5tiff import *
 
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1650/1071384838.py[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mfrom[0m [0mh5_2_tiff_converter[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/tmp/ipykernel_1653/2575795186.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#import package[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mh5tiff[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
 [0m
-[0;31mModuleNotFoundError[0m: No module named 'h5_2_tiff_converter'
-ModuleNotFoundError: No module named 'h5_2_tiff_converter'
+[0;31mModuleNotFoundError[0m: No module named 'h5tiff'
+ModuleNotFoundError: No module named 'h5tiff'
 
