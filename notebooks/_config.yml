@@ -153,9 +153,9 @@ sphinx:
     - 'sphinx.ext.napoleon'
   config:
     autosummary_generate: True
-    autosummary_imported_members: True
-    templates_path:
-        - '_templates'
+    # autosummary_imported_members: True
+    # templates_path:
+    #     - '_templates'
 
 
 
