@@ -12,11 +12,12 @@ with open("README.md") as f:
 # package configuration - for reference see:
 # https://setuptools.readthedocs.io/en/latest/setuptools.html#id9
 setup(
-    name='H5_2_Tiff_Converter',
+    name='h5tiff',
+    packages = ['h5tiff',],
     description='a flexible converter to extract tiff files from h5',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version='0.1',
+    version='0.11',
     author='Federico Puppo',
     author_email='federico.puppo@tum.de',
     url='https://github.com/fedem-p/h5_tiff_converter',
@@ -25,9 +26,6 @@ setup(
     python_requires=">=3.7",
     license='MIT',
     zip_safe=False,
-    entry_points={
-        'console_scripts': ['H5_2_Tiff_Converter=H5_2_Tiff_Converter.entry_points:h5_2_tiff_converter'],
-    },
     classifiers=[
         'Intended Audience :: Developers',
         'Programming Language :: Python :: 3.7',
