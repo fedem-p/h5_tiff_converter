@@ -43,7 +43,7 @@ sphinx:
   config:
     autosummary_generate: True
     autosummary_imported_members: True
-    html_theme: furo
+    html_theme: insegel
     templates_path:
         - '_templates'
     intersphinx_mapping:

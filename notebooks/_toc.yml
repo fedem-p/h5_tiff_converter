@@ -1,10 +1,14 @@
-- file: index
-    numbered: true
+# - file: index
 
-  - part: Introduction
-    chapters:
-      - file: 001_h5_to_single_tiff.ipynb
+# - section: Introduction
+#     - file: 001_h5_to_single_tiff.ipynb
 
-  - part: API
-    chapters:
-      - file: api/index
+# - pasection: API
+#     - file: api/index
+
+
+format: jb-book
+root: index
+chapters:
+  - file: 001_h5_to_single_tiff.ipynb
+  - file: api/index
