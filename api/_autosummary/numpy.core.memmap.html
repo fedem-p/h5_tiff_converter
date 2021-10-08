@@ -1,0 +1,1642 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>numpy.core.memmap &#8212; H5TIFF</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="numpy.core.multiarray" href="numpy.core.multiarray.html" />
+    <link rel="prev" title="numpy.core.machar" href="numpy.core.machar.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">H5TIFF</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   File converter from h5 to tiff images
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../001_h5_to_single_tiff.html">
+   First Tutorial
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   API Reference
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="numpy.html">
+     numpy
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.compat.html">
+       numpy.compat
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.compat.py3k.html">
+         numpy.compat.py3k
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.compat.setup.html">
+         numpy.compat.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.compat.tests.html">
+         numpy.compat.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="numpy.core.html">
+       numpy.core
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="current">
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.arrayprint.html">
+         numpy.core.arrayprint
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.defchararray.html">
+         numpy.core.defchararray
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.einsumfunc.html">
+         numpy.core.einsumfunc
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.fromnumeric.html">
+         numpy.core.fromnumeric
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.function_base.html">
+         numpy.core.function_base
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.getlimits.html">
+         numpy.core.getlimits
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.machar.html">
+         numpy.core.machar
+        </a>
+       </li>
+       <li class="toctree-l4 current active">
+        <a class="current reference internal" href="#">
+         numpy.core.memmap
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.multiarray.html">
+         numpy.core.multiarray
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.numeric.html">
+         numpy.core.numeric
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.numerictypes.html">
+         numpy.core.numerictypes
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.overrides.html">
+         numpy.core.overrides
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.records.html">
+         numpy.core.records
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.setup_common.html">
+         numpy.core.setup_common
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.shape_base.html">
+         numpy.core.shape_base
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.tests.html">
+         numpy.core.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.umath.html">
+         numpy.core.umath
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.umath_tests.html">
+         numpy.core.umath_tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy.ctypeslib.html">
+       numpy.ctypeslib
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.distutils.html">
+       numpy.distutils
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.ccompiler.html">
+         numpy.distutils.ccompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.ccompiler_opt.html">
+         numpy.distutils.ccompiler_opt
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.command.html">
+         numpy.distutils.command
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.conv_template.html">
+         numpy.distutils.conv_template
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.core.html">
+         numpy.distutils.core
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.cpuinfo.html">
+         numpy.distutils.cpuinfo
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.exec_command.html">
+         numpy.distutils.exec_command
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.extension.html">
+         numpy.distutils.extension
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.fcompiler.html">
+         numpy.distutils.fcompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.from_template.html">
+         numpy.distutils.from_template
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.intelccompiler.html">
+         numpy.distutils.intelccompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.lib2def.html">
+         numpy.distutils.lib2def
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.line_endings.html">
+         numpy.distutils.line_endings
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.log.html">
+         numpy.distutils.log
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.mingw32ccompiler.html">
+         numpy.distutils.mingw32ccompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.misc_util.html">
+         numpy.distutils.misc_util
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.msvccompiler.html">
+         numpy.distutils.msvccompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.npy_pkg_config.html">
+         numpy.distutils.npy_pkg_config
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.numpy_distribution.html">
+         numpy.distutils.numpy_distribution
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.pathccompiler.html">
+         numpy.distutils.pathccompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.setup.html">
+         numpy.distutils.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.system_info.html">
+         numpy.distutils.system_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.tests.html">
+         numpy.distutils.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.unixccompiler.html">
+         numpy.distutils.unixccompiler
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.doc.html">
+       numpy.doc
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+      <label for="toctree-checkbox-6">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.doc.constants.html">
+         numpy.doc.constants
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.doc.ufuncs.html">
+         numpy.doc.ufuncs
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy.dual.html">
+       numpy.dual
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.f2py.html">
+       numpy.f2py
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.auxfuncs.html">
+         numpy.f2py.auxfuncs
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.capi_maps.html">
+         numpy.f2py.capi_maps
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.cb_rules.html">
+         numpy.f2py.cb_rules
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.cfuncs.html">
+         numpy.f2py.cfuncs
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.common_rules.html">
+         numpy.f2py.common_rules
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.crackfortran.html">
+         numpy.f2py.crackfortran
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.diagnose.html">
+         numpy.f2py.diagnose
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.f2py2e.html">
+         numpy.f2py.f2py2e
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.f2py_testing.html">
+         numpy.f2py.f2py_testing
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.f90mod_rules.html">
+         numpy.f2py.f90mod_rules
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.func2subr.html">
+         numpy.f2py.func2subr
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.rules.html">
+         numpy.f2py.rules
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.tests.html">
+         numpy.f2py.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.use_rules.html">
+         numpy.f2py.use_rules
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.fft.html">
+       numpy.fft
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.fft.html">
+         numpy.fft.fft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.ifft.html">
+         numpy.fft.ifft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.fft2.html">
+         numpy.fft.fft2
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.ifft2.html">
+         numpy.fft.ifft2
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.fftn.html">
+         numpy.fft.fftn
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.ifftn.html">
+         numpy.fft.ifftn
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.rfft.html">
+         numpy.fft.rfft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.irfft.html">
+         numpy.fft.irfft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.rfft2.html">
+         numpy.fft.rfft2
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.irfft2.html">
+         numpy.fft.irfft2
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.rfftn.html">
+         numpy.fft.rfftn
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.irfftn.html">
+         numpy.fft.irfftn
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.hfft.html">
+         numpy.fft.hfft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.ihfft.html">
+         numpy.fft.ihfft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.fftfreq.html">
+         numpy.fft.fftfreq
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.rfftfreq.html">
+         numpy.fft.rfftfreq
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.fftshift.html">
+         numpy.fft.fftshift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.ifftshift.html">
+         numpy.fft.ifftshift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.fft.helper.html">
+         numpy.fft.helper
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.fft.setup.html">
+         numpy.fft.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.fft.tests.html">
+         numpy.fft.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.lib.html">
+       numpy.lib
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.arraypad.html">
+         numpy.lib.arraypad
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.arraysetops.html">
+         numpy.lib.arraysetops
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.arrayterator.html">
+         numpy.lib.arrayterator
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.format.html">
+         numpy.lib.format
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.function_base.html">
+         numpy.lib.function_base
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.histograms.html">
+         numpy.lib.histograms
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.index_tricks.html">
+         numpy.lib.index_tricks
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.mixins.html">
+         numpy.lib.mixins
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.nanfunctions.html">
+         numpy.lib.nanfunctions
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.npyio.html">
+         numpy.lib.npyio
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.polynomial.html">
+         numpy.lib.polynomial
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.recfunctions.html">
+         numpy.lib.recfunctions
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.scimath.html">
+         numpy.lib.scimath
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.setup.html">
+         numpy.lib.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.shape_base.html">
+         numpy.lib.shape_base
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.stride_tricks.html">
+         numpy.lib.stride_tricks
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.tests.html">
+         numpy.lib.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.twodim_base.html">
+         numpy.lib.twodim_base
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.type_check.html">
+         numpy.lib.type_check
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.ufunclike.html">
+         numpy.lib.ufunclike
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.user_array.html">
+         numpy.lib.user_array
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.utils.html">
+         numpy.lib.utils
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.linalg.html">
+       numpy.linalg
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.linalg.lapack_lite.html">
+         numpy.linalg.lapack_lite
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.linalg.linalg.html">
+         numpy.linalg.linalg
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.linalg.setup.html">
+         numpy.linalg.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.linalg.tests.html">
+         numpy.linalg.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.ma.html">
+       numpy.ma
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.bench.html">
+         numpy.ma.bench
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.core.html">
+         numpy.ma.core
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.extras.html">
+         numpy.ma.extras
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.mrecords.html">
+         numpy.ma.mrecords
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.setup.html">
+         numpy.ma.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.tests.html">
+         numpy.ma.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.testutils.html">
+         numpy.ma.testutils
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.timer_comparison.html">
+         numpy.ma.timer_comparison
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy.matlib.html">
+       numpy.matlib
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.matrixlib.html">
+       numpy.matrixlib
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.matrixlib.defmatrix.html">
+         numpy.matrixlib.defmatrix
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.matrixlib.setup.html">
+         numpy.matrixlib.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.matrixlib.tests.html">
+         numpy.matrixlib.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.polynomial.html">
+       numpy.polynomial
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.chebyshev.html">
+         numpy.polynomial.chebyshev
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.hermite.html">
+         numpy.polynomial.hermite
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.hermite_e.html">
+         numpy.polynomial.hermite_e
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.laguerre.html">
+         numpy.polynomial.laguerre
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.legendre.html">
+         numpy.polynomial.legendre
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.polynomial.html">
+         numpy.polynomial.polynomial
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.polyutils.html">
+         numpy.polynomial.polyutils
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.setup.html">
+         numpy.polynomial.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.tests.html">
+         numpy.polynomial.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.random.html">
+       numpy.random
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.random.bit_generator.html">
+         numpy.random.bit_generator
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.random.mtrand.html">
+         numpy.random.mtrand
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.random.setup.html">
+         numpy.random.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.random.tests.html">
+         numpy.random.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy.setup.html">
+       numpy.setup
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.testing.html">
+       numpy.testing
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+      <label for="toctree-checkbox-15">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.testing.print_coercion_tables.html">
+         numpy.testing.print_coercion_tables
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.testing.setup.html">
+         numpy.testing.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.testing.tests.html">
+         numpy.testing.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.testing.utils.html">
+         numpy.testing.utils
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.tests.html">
+       numpy.tests
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.tests.test_matlib.html">
+         numpy.tests.test_matlib
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.tests.test_numpy_version.html">
+         numpy.tests.test_numpy_version
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.tests.test_reloading.html">
+         numpy.tests.test_reloading
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.typing.html">
+       numpy.typing
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+      <label for="toctree-checkbox-17">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.typing.mypy_plugin.html">
+         numpy.typing.mypy_plugin
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.typing.setup.html">
+         numpy.typing.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.typing.tests.html">
+         numpy.typing.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy.version.html">
+       numpy.version
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="h5tiff.html">
+     h5tiff
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+    <label for="toctree-checkbox-18">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="h5tiff.h5tiff.html">
+       h5tiff.h5tiff
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/api/_autosummary/numpy.core.memmap.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="numpy-core-memmap">
+<h1>numpy.core.memmap<a class="headerlink" href="#numpy-core-memmap" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="numpy.core.memmap">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">numpy.core.</span></code><code class="sig-name descname"><span class="pre">memmap</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.uint8'&gt;</span></em>, <em class="sig-param"><span class="pre">mode='r+'</span></em>, <em class="sig-param"><span class="pre">offset=0</span></em>, <em class="sig-param"><span class="pre">shape=None</span></em>, <em class="sig-param"><span class="pre">order='C'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#numpy.core.memmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a memory-map to an array stored in a <em>binary</em> file on disk.</p>
+<p>Memory-mapped files are used for accessing small segments of large files
+on disk, without reading the entire file into memory.  NumPy’s
+memmap’s are array-like objects.  This differs from Python’s <code class="docutils literal notranslate"><span class="pre">mmap</span></code>
+module, which uses file-like objects.</p>
+<p>This subclass of ndarray has some unpleasant interactions with
+some operations, because it doesn’t quite fit properly as a subclass.
+An alternative to using this subclass is to create the <code class="docutils literal notranslate"><span class="pre">mmap</span></code>
+object yourself, then create an ndarray with ndarray.__new__ directly,
+passing the object created in its ‘buffer=’ parameter.</p>
+<p>This class may at some point be turned into a factory function
+which returns a view into an mmap buffer.</p>
+<p>Flush the memmap instance to write the changes to the file. Currently there
+is no API to close the underlying <code class="docutils literal notranslate"><span class="pre">mmap</span></code>. It is tricky to ensure the
+resource is actually closed, since it may be shared between different
+memmap instances.</p>
+<dl>
+<dt>filename<span class="classifier">str, file-like object, or pathlib.Path instance</span></dt><dd><p>The file name or file object to be used as the array data buffer.</p>
+</dd>
+<dt>dtype<span class="classifier">data-type, optional</span></dt><dd><p>The data-type used to interpret the file contents.
+Default is <cite>uint8</cite>.</p>
+</dd>
+<dt>mode<span class="classifier">{‘r+’, ‘r’, ‘w+’, ‘c’}, optional</span></dt><dd><p>The file is opened in this mode:</p>
+<table class="table">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 91%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>‘r’</p></td>
+<td><p>Open existing file for reading only.</p></td>
+</tr>
+<tr class="row-even"><td><p>‘r+’</p></td>
+<td><p>Open existing file for reading and writing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘w+’</p></td>
+<td><p>Create or overwrite existing file for reading and writing.</p></td>
+</tr>
+<tr class="row-even"><td><p>‘c’</p></td>
+<td><p>Copy-on-write: assignments affect data in memory, but
+changes are not saved to disk.  The file on disk is
+read-only.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Default is ‘r+’.</p>
+</dd>
+<dt>offset<span class="classifier">int, optional</span></dt><dd><p>In the file, array data starts at this offset. Since <cite>offset</cite> is
+measured in bytes, it should normally be a multiple of the byte-size
+of <cite>dtype</cite>. When <code class="docutils literal notranslate"><span class="pre">mode</span> <span class="pre">!=</span> <span class="pre">'r'</span></code>, even positive offsets beyond end of
+file are valid; The file will be extended to accommodate the
+additional data. By default, <code class="docutils literal notranslate"><span class="pre">memmap</span></code> will start at the beginning of
+the file, even if <code class="docutils literal notranslate"><span class="pre">filename</span></code> is a file pointer <code class="docutils literal notranslate"><span class="pre">fp</span></code> and
+<code class="docutils literal notranslate"><span class="pre">fp.tell()</span> <span class="pre">!=</span> <span class="pre">0</span></code>.</p>
+</dd>
+<dt>shape<span class="classifier">tuple, optional</span></dt><dd><p>The desired shape of the array. If <code class="docutils literal notranslate"><span class="pre">mode</span> <span class="pre">==</span> <span class="pre">'r'</span></code> and the number
+of remaining bytes after <cite>offset</cite> is not a multiple of the byte-size
+of <cite>dtype</cite>, you must specify <cite>shape</cite>. By default, the returned array
+will be 1-D with the number of elements determined by file size
+and data-type.</p>
+</dd>
+<dt>order<span class="classifier">{‘C’, ‘F’}, optional</span></dt><dd><p>Specify the order of the ndarray memory layout:
+<span class="xref std std-term">row-major</span>, C-style or <span class="xref std std-term">column-major</span>,
+Fortran-style.  This only has an effect if the shape is
+greater than 1-D.  The default order is ‘C’.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>filename<span class="classifier">str or pathlib.Path instance</span></dt><dd><p>Path to the mapped file.</p>
+</dd>
+<dt>offset<span class="classifier">int</span></dt><dd><p>Offset position in the file.</p>
+</dd>
+<dt>mode<span class="classifier">str</span></dt><dd><p>File mode.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>flush</dt><dd><p>Flush any changes in memory to file on disk.
+When you delete a memmap object, flush is called first to write
+changes to disk.</p>
+</dd>
+</dl>
+<p>lib.format.open_memmap : Create or load a memory-mapped <code class="docutils literal notranslate"><span class="pre">.npy</span></code> file.</p>
+<p>The memmap object can be used anywhere an ndarray is accepted.
+Given a memmap <code class="docutils literal notranslate"><span class="pre">fp</span></code>, <code class="docutils literal notranslate"><span class="pre">isinstance(fp,</span> <span class="pre">numpy.ndarray)</span></code> returns
+<code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Memory-mapped files cannot be larger than 2GB on 32-bit systems.</p>
+<p>When a memmap causes a file to be created or extended beyond its
+current size in the filesystem, the contents of the new part are
+unspecified. On systems with POSIX filesystem semantics, the extended
+part will be filled with zero bytes.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This example uses a temporary file so that doctest doesn’t write
+files to your directory. You would use a ‘normal’ filename.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">mkdtemp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os.path</span> <span class="k">as</span> <span class="nn">path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mkdtemp</span><span class="p">(),</span> <span class="s1">&#39;newfile.dat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create a memmap with dtype and shape that matches our data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w+&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fp</span>
+<span class="go">memmap([[0., 0., 0., 0.],</span>
+<span class="go">        [0., 0., 0., 0.],</span>
+<span class="go">        [0., 0., 0., 0.]], dtype=float32)</span>
+</pre></div>
+</div>
+<p>Write data to memmap array:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fp</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fp</span>
+<span class="go">memmap([[  0.,   1.,   2.,   3.],</span>
+<span class="go">        [  4.,   5.,   6.,   7.],</span>
+<span class="go">        [  8.,   9.,  10.,  11.]], dtype=float32)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fp</span><span class="o">.</span><span class="n">filename</span> <span class="o">==</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Flushes memory changes to disk in order to read them back</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fp</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Load the memmap and verify data was stored:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">newfp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newfp</span>
+<span class="go">memmap([[  0.,   1.,   2.,   3.],</span>
+<span class="go">        [  4.,   5.,   6.,   7.],</span>
+<span class="go">        [  8.,   9.,  10.,  11.]], dtype=float32)</span>
+</pre></div>
+</div>
+<p>Read-only memmap:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fpr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fpr</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Copy-on-write memmap:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fpc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fpc</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>It’s possible to assign to copy-on-write array, but values are only
+written into the memory copy of the array, and not written to disk:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fpc</span>
+<span class="go">memmap([[  0.,   1.,   2.,   3.],</span>
+<span class="go">        [  4.,   5.,   6.,   7.],</span>
+<span class="go">        [  8.,   9.,  10.,  11.]], dtype=float32)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fpc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fpc</span>
+<span class="go">memmap([[  0.,   0.,   0.,   0.],</span>
+<span class="go">        [  4.,   5.,   6.,   7.],</span>
+<span class="go">        [  8.,   9.,  10.,  11.]], dtype=float32)</span>
+</pre></div>
+</div>
+<p>File on disk is unchanged:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fpr</span>
+<span class="go">memmap([[  0.,   1.,   2.,   3.],</span>
+<span class="go">        [  4.,   5.,   6.,   7.],</span>
+<span class="go">        [  8.,   9.,  10.,  11.]], dtype=float32)</span>
+</pre></div>
+</div>
+<p>Offset into a memmap:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fpo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fpo</span>
+<span class="go">memmap([  4.,   5.,   6.,   7.,   8.,   9.,  10.,  11.], dtype=float32)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="numpy.core.memmap.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numpy.core.memmap.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>()</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">all</span></code>([axis, out, keepdims, where])</p></td>
+<td><p>Returns True if all elements evaluate to True.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">any</span></code>([axis, out, keepdims, where])</p></td>
+<td><p>Returns True if any of the elements of <cite>a</cite> evaluate to True.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">argmax</span></code>([axis, out])</p></td>
+<td><p>Return indices of the maximum values along the given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">argmin</span></code>([axis, out])</p></td>
+<td><p>Return indices of the minimum values along the given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">argpartition</span></code>(kth[, axis, kind, order])</p></td>
+<td><p>Returns the indices that would partition this array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">argsort</span></code>([axis, kind, order])</p></td>
+<td><p>Returns the indices that would sort this array.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">astype</span></code>(dtype[, order, casting, subok, copy])</p></td>
+<td><p>Copy of the array, cast to a specified type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">byteswap</span></code>([inplace])</p></td>
+<td><p>Swap the bytes of the array elements</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">choose</span></code>(choices[, out, mode])</p></td>
+<td><p>Use an index array to construct a new array from a set of choices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">clip</span></code>([min, max, out])</p></td>
+<td><p>Return an array whose values are limited to <code class="docutils literal notranslate"><span class="pre">[min,</span> <span class="pre">max]</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">compress</span></code>(condition[, axis, out])</p></td>
+<td><p>Return selected slices of this array along given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">conj</span></code>()</p></td>
+<td><p>Complex-conjugate all elements.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">conjugate</span></code>()</p></td>
+<td><p>Return the complex conjugate, element-wise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code>([order])</p></td>
+<td><p>Return a copy of the array.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">cumprod</span></code>([axis, dtype, out])</p></td>
+<td><p>Return the cumulative product of the elements along the given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">cumsum</span></code>([axis, dtype, out])</p></td>
+<td><p>Return the cumulative sum of the elements along the given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagonal</span></code>([offset, axis1, axis2])</p></td>
+<td><p>Return specified diagonals.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dot</span></code>(b[, out])</p></td>
+<td><p>Dot product of two arrays.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump</span></code>(file)</p></td>
+<td><p>Dump a pickle of the array to the specified file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dumps</span></code>()</p></td>
+<td><p>Returns the pickle of the array as a string.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill</span></code>(value)</p></td>
+<td><p>Fill the array with a scalar value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">flatten</span></code>([order])</p></td>
+<td><p>Return a copy of the array collapsed into one dimension.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">flush</span></code>()</p></td>
+<td><p>Write any changes in the array to the file on disk.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">getfield</span></code>(dtype[, offset])</p></td>
+<td><p>Returns a field of the given array as a certain type.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">item</span></code>(*args)</p></td>
+<td><p>Copy an element of an array to a standard Python scalar and return it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">itemset</span></code>(*args)</p></td>
+<td><p>Insert scalar into an array (scalar is cast to array’s dtype, if possible)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code>([axis, out, keepdims, initial, where])</p></td>
+<td><p>Return the maximum along a given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code>([axis, dtype, out, keepdims, where])</p></td>
+<td><p>Returns the average of the array elements along given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code>([axis, out, keepdims, initial, where])</p></td>
+<td><p>Return the minimum along a given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">newbyteorder</span></code>([new_order])</p></td>
+<td><p>Return the array with the same data viewed with a different byte order.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">nonzero</span></code>()</p></td>
+<td><p>Return the indices of the elements that are non-zero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">partition</span></code>(kth[, axis, kind, order])</p></td>
+<td><p>Rearranges the elements in the array in such a way that the value of the element in kth position is in the position it would be in a sorted array.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prod</span></code>([axis, dtype, out, keepdims, initial, …])</p></td>
+<td><p>Return the product of the array elements over the given axis</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ptp</span></code>([axis, out, keepdims])</p></td>
+<td><p>Peak to peak (maximum - minimum) value along a given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">put</span></code>(indices, values[, mode])</p></td>
+<td><p>Set <code class="docutils literal notranslate"><span class="pre">a.flat[n]</span> <span class="pre">=</span> <span class="pre">values[n]</span></code> for all <cite>n</cite> in indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ravel</span></code>([order])</p></td>
+<td><p>Return a flattened array.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">repeat</span></code>(repeats[, axis])</p></td>
+<td><p>Repeat elements of an array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reshape</span></code>(shape[, order])</p></td>
+<td><p>Returns an array containing the same data with a new shape.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">resize</span></code>(new_shape[, refcheck])</p></td>
+<td><p>Change shape and size of array in-place.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">round</span></code>([decimals, out])</p></td>
+<td><p>Return <cite>a</cite> with each element rounded to the given number of decimals.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">searchsorted</span></code>(v[, side, sorter])</p></td>
+<td><p>Find indices where elements of v should be inserted in a to maintain order.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">setfield</span></code>(val, dtype[, offset])</p></td>
+<td><p>Put a value into a specified place in a field defined by a data-type.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">setflags</span></code>([write, align, uic])</p></td>
+<td><p>Set array flags WRITEABLE, ALIGNED, (WRITEBACKIFCOPY and UPDATEIFCOPY), respectively.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort</span></code>([axis, kind, order])</p></td>
+<td><p>Sort an array in-place.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">squeeze</span></code>([axis])</p></td>
+<td><p>Remove axes of length one from <cite>a</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">std</span></code>([axis, dtype, out, ddof, keepdims, where])</p></td>
+<td><p>Returns the standard deviation of the array elements along given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum</span></code>([axis, dtype, out, keepdims, initial, where])</p></td>
+<td><p>Return the sum of the array elements over the given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">swapaxes</span></code>(axis1, axis2)</p></td>
+<td><p>Return a view of the array with <cite>axis1</cite> and <cite>axis2</cite> interchanged.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">take</span></code>(indices[, axis, out, mode])</p></td>
+<td><p>Return an array formed from the elements of <cite>a</cite> at the given indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tobytes</span></code>([order])</p></td>
+<td><p>Construct Python bytes containing the raw data bytes in the array.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tofile</span></code>(fid[, sep, format])</p></td>
+<td><p>Write array to a file as text or binary (default).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tolist</span></code>()</p></td>
+<td><p>Return the array as an <code class="docutils literal notranslate"><span class="pre">a.ndim</span></code>-levels deep nested list of Python scalars.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tostring</span></code>([order])</p></td>
+<td><p>A compatibility alias for <cite>tobytes</cite>, with exactly the same behavior.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">trace</span></code>([offset, axis1, axis2, dtype, out])</p></td>
+<td><p>Return the sum along diagonals of the array.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">transpose</span></code>(*axes)</p></td>
+<td><p>Returns a view of the array with axes transposed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code>([axis, dtype, out, ddof, keepdims, where])</p></td>
+<td><p>Returns the variance of the array elements, along given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>([dtype][, type])</p></td>
+<td><p>New view of array with the same data.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></p></td>
+<td><p>The transposed array.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">base</span></code></p></td>
+<td><p>Base object if memory is from some other object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ctypes</span></code></p></td>
+<td><p>An object to simplify the interaction of the array with the ctypes module.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></p></td>
+<td><p>Python buffer object pointing to the start of the array’s data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code></p></td>
+<td><p>Data-type of the array’s elements.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">flags</span></code></p></td>
+<td><p>Information about the memory layout of the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">flat</span></code></p></td>
+<td><p>A 1-D iterator over the array.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">imag</span></code></p></td>
+<td><p>The imaginary part of the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">itemsize</span></code></p></td>
+<td><p>Length of one array element in bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">nbytes</span></code></p></td>
+<td><p>Total bytes consumed by the elements of the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndim</span></code></p></td>
+<td><p>Number of array dimensions.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">real</span></code></p></td>
+<td><p>The real part of the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></p></td>
+<td><p>Tuple of array dimensions.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></p></td>
+<td><p>Number of elements in the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">strides</span></code></p></td>
+<td><p>Tuple of bytes to step in each dimension when traversing an array.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "fedem-p/h5_tiff_converter",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./api/_autosummary"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="numpy.core.machar.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">numpy.core.machar</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="numpy.core.multiarray.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">numpy.core.multiarray</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Federico Puppo<br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            Mantained by Federico Puppo
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

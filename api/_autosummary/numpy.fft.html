@@ -1,0 +1,1619 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>numpy.fft &#8212; H5TIFF</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="numpy.fft.fft" href="generated/numpy.fft.fft.html" />
+    <link rel="prev" title="numpy.f2py.use_rules" href="numpy.f2py.use_rules.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">H5TIFF</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   File converter from h5 to tiff images
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../001_h5_to_single_tiff.html">
+   First Tutorial
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   API Reference
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="numpy.html">
+     numpy
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.compat.html">
+       numpy.compat
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.compat.py3k.html">
+         numpy.compat.py3k
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.compat.setup.html">
+         numpy.compat.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.compat.tests.html">
+         numpy.compat.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.core.html">
+       numpy.core
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.arrayprint.html">
+         numpy.core.arrayprint
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.defchararray.html">
+         numpy.core.defchararray
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.einsumfunc.html">
+         numpy.core.einsumfunc
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.fromnumeric.html">
+         numpy.core.fromnumeric
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.function_base.html">
+         numpy.core.function_base
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.getlimits.html">
+         numpy.core.getlimits
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.machar.html">
+         numpy.core.machar
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.memmap.html">
+         numpy.core.memmap
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.multiarray.html">
+         numpy.core.multiarray
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.numeric.html">
+         numpy.core.numeric
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.numerictypes.html">
+         numpy.core.numerictypes
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.overrides.html">
+         numpy.core.overrides
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.records.html">
+         numpy.core.records
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.setup_common.html">
+         numpy.core.setup_common
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.shape_base.html">
+         numpy.core.shape_base
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.tests.html">
+         numpy.core.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.umath.html">
+         numpy.core.umath
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.core.umath_tests.html">
+         numpy.core.umath_tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy.ctypeslib.html">
+       numpy.ctypeslib
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.distutils.html">
+       numpy.distutils
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.ccompiler.html">
+         numpy.distutils.ccompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.ccompiler_opt.html">
+         numpy.distutils.ccompiler_opt
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.command.html">
+         numpy.distutils.command
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.conv_template.html">
+         numpy.distutils.conv_template
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.core.html">
+         numpy.distutils.core
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.cpuinfo.html">
+         numpy.distutils.cpuinfo
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.exec_command.html">
+         numpy.distutils.exec_command
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.extension.html">
+         numpy.distutils.extension
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.fcompiler.html">
+         numpy.distutils.fcompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.from_template.html">
+         numpy.distutils.from_template
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.intelccompiler.html">
+         numpy.distutils.intelccompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.lib2def.html">
+         numpy.distutils.lib2def
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.line_endings.html">
+         numpy.distutils.line_endings
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.log.html">
+         numpy.distutils.log
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.mingw32ccompiler.html">
+         numpy.distutils.mingw32ccompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.misc_util.html">
+         numpy.distutils.misc_util
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.msvccompiler.html">
+         numpy.distutils.msvccompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.npy_pkg_config.html">
+         numpy.distutils.npy_pkg_config
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.numpy_distribution.html">
+         numpy.distutils.numpy_distribution
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.pathccompiler.html">
+         numpy.distutils.pathccompiler
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.setup.html">
+         numpy.distutils.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.system_info.html">
+         numpy.distutils.system_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.tests.html">
+         numpy.distutils.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.distutils.unixccompiler.html">
+         numpy.distutils.unixccompiler
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.doc.html">
+       numpy.doc
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+      <label for="toctree-checkbox-6">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.doc.constants.html">
+         numpy.doc.constants
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.doc.ufuncs.html">
+         numpy.doc.ufuncs
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy.dual.html">
+       numpy.dual
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.f2py.html">
+       numpy.f2py
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.auxfuncs.html">
+         numpy.f2py.auxfuncs
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.capi_maps.html">
+         numpy.f2py.capi_maps
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.cb_rules.html">
+         numpy.f2py.cb_rules
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.cfuncs.html">
+         numpy.f2py.cfuncs
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.common_rules.html">
+         numpy.f2py.common_rules
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.crackfortran.html">
+         numpy.f2py.crackfortran
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.diagnose.html">
+         numpy.f2py.diagnose
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.f2py2e.html">
+         numpy.f2py.f2py2e
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.f2py_testing.html">
+         numpy.f2py.f2py_testing
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.f90mod_rules.html">
+         numpy.f2py.f90mod_rules
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.func2subr.html">
+         numpy.f2py.func2subr
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.rules.html">
+         numpy.f2py.rules
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.tests.html">
+         numpy.f2py.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.f2py.use_rules.html">
+         numpy.f2py.use_rules
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 current active has-children">
+      <a class="current reference internal" href="#">
+       numpy.fft
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.fft.html">
+         numpy.fft.fft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.ifft.html">
+         numpy.fft.ifft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.fft2.html">
+         numpy.fft.fft2
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.ifft2.html">
+         numpy.fft.ifft2
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.fftn.html">
+         numpy.fft.fftn
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.ifftn.html">
+         numpy.fft.ifftn
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.rfft.html">
+         numpy.fft.rfft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.irfft.html">
+         numpy.fft.irfft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.rfft2.html">
+         numpy.fft.rfft2
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.irfft2.html">
+         numpy.fft.irfft2
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.rfftn.html">
+         numpy.fft.rfftn
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.irfftn.html">
+         numpy.fft.irfftn
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.hfft.html">
+         numpy.fft.hfft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.ihfft.html">
+         numpy.fft.ihfft
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.fftfreq.html">
+         numpy.fft.fftfreq
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.rfftfreq.html">
+         numpy.fft.rfftfreq
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.fftshift.html">
+         numpy.fft.fftshift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/numpy.fft.ifftshift.html">
+         numpy.fft.ifftshift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.fft.helper.html">
+         numpy.fft.helper
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.fft.setup.html">
+         numpy.fft.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.fft.tests.html">
+         numpy.fft.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.lib.html">
+       numpy.lib
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.arraypad.html">
+         numpy.lib.arraypad
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.arraysetops.html">
+         numpy.lib.arraysetops
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.arrayterator.html">
+         numpy.lib.arrayterator
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.format.html">
+         numpy.lib.format
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.function_base.html">
+         numpy.lib.function_base
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.histograms.html">
+         numpy.lib.histograms
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.index_tricks.html">
+         numpy.lib.index_tricks
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.mixins.html">
+         numpy.lib.mixins
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.nanfunctions.html">
+         numpy.lib.nanfunctions
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.npyio.html">
+         numpy.lib.npyio
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.polynomial.html">
+         numpy.lib.polynomial
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.recfunctions.html">
+         numpy.lib.recfunctions
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.scimath.html">
+         numpy.lib.scimath
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.setup.html">
+         numpy.lib.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.shape_base.html">
+         numpy.lib.shape_base
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.stride_tricks.html">
+         numpy.lib.stride_tricks
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.tests.html">
+         numpy.lib.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.twodim_base.html">
+         numpy.lib.twodim_base
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.type_check.html">
+         numpy.lib.type_check
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.ufunclike.html">
+         numpy.lib.ufunclike
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.user_array.html">
+         numpy.lib.user_array
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.lib.utils.html">
+         numpy.lib.utils
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.linalg.html">
+       numpy.linalg
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.linalg.lapack_lite.html">
+         numpy.linalg.lapack_lite
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.linalg.linalg.html">
+         numpy.linalg.linalg
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.linalg.setup.html">
+         numpy.linalg.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.linalg.tests.html">
+         numpy.linalg.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.ma.html">
+       numpy.ma
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.bench.html">
+         numpy.ma.bench
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.core.html">
+         numpy.ma.core
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.extras.html">
+         numpy.ma.extras
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.mrecords.html">
+         numpy.ma.mrecords
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.setup.html">
+         numpy.ma.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.tests.html">
+         numpy.ma.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.testutils.html">
+         numpy.ma.testutils
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.ma.timer_comparison.html">
+         numpy.ma.timer_comparison
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy.matlib.html">
+       numpy.matlib
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.matrixlib.html">
+       numpy.matrixlib
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.matrixlib.defmatrix.html">
+         numpy.matrixlib.defmatrix
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.matrixlib.setup.html">
+         numpy.matrixlib.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.matrixlib.tests.html">
+         numpy.matrixlib.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.polynomial.html">
+       numpy.polynomial
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.chebyshev.html">
+         numpy.polynomial.chebyshev
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.hermite.html">
+         numpy.polynomial.hermite
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.hermite_e.html">
+         numpy.polynomial.hermite_e
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.laguerre.html">
+         numpy.polynomial.laguerre
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.legendre.html">
+         numpy.polynomial.legendre
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.polynomial.html">
+         numpy.polynomial.polynomial
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.polyutils.html">
+         numpy.polynomial.polyutils
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.setup.html">
+         numpy.polynomial.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.polynomial.tests.html">
+         numpy.polynomial.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.random.html">
+       numpy.random
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.random.bit_generator.html">
+         numpy.random.bit_generator
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.random.mtrand.html">
+         numpy.random.mtrand
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.random.setup.html">
+         numpy.random.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.random.tests.html">
+         numpy.random.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy.setup.html">
+       numpy.setup
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.testing.html">
+       numpy.testing
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+      <label for="toctree-checkbox-15">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.testing.print_coercion_tables.html">
+         numpy.testing.print_coercion_tables
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.testing.setup.html">
+         numpy.testing.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.testing.tests.html">
+         numpy.testing.tests
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.testing.utils.html">
+         numpy.testing.utils
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.tests.html">
+       numpy.tests
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.tests.test_matlib.html">
+         numpy.tests.test_matlib
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.tests.test_numpy_version.html">
+         numpy.tests.test_numpy_version
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.tests.test_reloading.html">
+         numpy.tests.test_reloading
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="numpy.typing.html">
+       numpy.typing
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+      <label for="toctree-checkbox-17">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.typing.mypy_plugin.html">
+         numpy.typing.mypy_plugin
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.typing.setup.html">
+         numpy.typing.setup
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="numpy.typing.tests.html">
+         numpy.typing.tests
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy.version.html">
+       numpy.version
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="h5tiff.html">
+     h5tiff
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+    <label for="toctree-checkbox-18">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="h5tiff.h5tiff.html">
+       h5tiff.h5tiff
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/api/_autosummary/numpy.fft.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discrete-fourier-transform-numpy-fft">
+   Discrete Fourier Transform (
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     numpy.fft
+    </span>
+   </code>
+   )
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-ffts">
+     Standard FFTs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#real-ffts">
+     Real FFTs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hermitian-ffts">
+     Hermitian FFTs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#helper-routines">
+     Helper routines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background-information">
+     Background information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     Implementation details
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-promotion">
+     Type Promotion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalization">
+     Normalization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#real-and-hermitian-transforms">
+     Real and Hermitian transforms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#higher-dimensions">
+     Higher dimensions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples">
+     Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="module-numpy.fft">
+<span id="numpy-fft"></span><h1>numpy.fft<a class="headerlink" href="#module-numpy.fft" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="discrete-fourier-transform-numpy-fft">
+<h2>Discrete Fourier Transform (<a class="reference internal" href="#module-numpy.fft" title="numpy.fft"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.fft</span></code></a>)<a class="headerlink" href="#discrete-fourier-transform-numpy-fft" title="Permalink to this headline">¶</a></h2>
+<p>The SciPy module <cite>scipy.fft</cite> is a more comprehensive superset
+of <code class="docutils literal notranslate"><span class="pre">numpy.fft</span></code>, which includes only a basic set of routines.</p>
+<div class="section" id="standard-ffts">
+<h3>Standard FFTs<a class="headerlink" href="#standard-ffts" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.fft.html#numpy.fft.fft" title="numpy.fft.fft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Compute the one-dimensional discrete Fourier Transform.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.ifft.html#numpy.fft.ifft" title="numpy.fft.ifft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ifft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Compute the one-dimensional inverse discrete Fourier Transform.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.fft2.html#numpy.fft.fft2" title="numpy.fft.fft2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fft2</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the 2-dimensional discrete Fourier Transform.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.ifft2.html#numpy.fft.ifft2" title="numpy.fft.ifft2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ifft2</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the 2-dimensional inverse discrete Fourier Transform.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.fftn.html#numpy.fft.fftn" title="numpy.fft.fftn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fftn</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the N-dimensional discrete Fourier Transform.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.ifftn.html#numpy.fft.ifftn" title="numpy.fft.ifftn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ifftn</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the N-dimensional inverse discrete Fourier Transform.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="real-ffts">
+<h3>Real FFTs<a class="headerlink" href="#real-ffts" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.rfft.html#numpy.fft.rfft" title="numpy.fft.rfft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Compute the one-dimensional discrete Fourier Transform for real input.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.irfft.html#numpy.fft.irfft" title="numpy.fft.irfft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">irfft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Computes the inverse of <cite>rfft</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.rfft2.html#numpy.fft.rfft2" title="numpy.fft.rfft2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfft2</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the 2-dimensional FFT of a real array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.irfft2.html#numpy.fft.irfft2" title="numpy.fft.irfft2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">irfft2</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Computes the inverse of <cite>rfft2</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.rfftn.html#numpy.fft.rfftn" title="numpy.fft.rfftn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfftn</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the N-dimensional discrete Fourier Transform for real input.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.irfftn.html#numpy.fft.irfftn" title="numpy.fft.irfftn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">irfftn</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Computes the inverse of <cite>rfftn</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hermitian-ffts">
+<h3>Hermitian FFTs<a class="headerlink" href="#hermitian-ffts" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.hfft.html#numpy.fft.hfft" title="numpy.fft.hfft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hfft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Compute the FFT of a signal that has Hermitian symmetry, i.e., a real spectrum.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.ihfft.html#numpy.fft.ihfft" title="numpy.fft.ihfft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ihfft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Compute the inverse FFT of a signal that has Hermitian symmetry.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="helper-routines">
+<h3>Helper routines<a class="headerlink" href="#helper-routines" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.fftfreq.html#numpy.fft.fftfreq" title="numpy.fft.fftfreq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fftfreq</span></code></a>(n[, d])</p></td>
+<td><p>Return the Discrete Fourier Transform sample frequencies.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.rfftfreq.html#numpy.fft.rfftfreq" title="numpy.fft.rfftfreq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfftfreq</span></code></a>(n[, d])</p></td>
+<td><p>Return the Discrete Fourier Transform sample frequencies (for usage with rfft, irfft).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.fftshift.html#numpy.fft.fftshift" title="numpy.fft.fftshift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fftshift</span></code></a>(x[, axes])</p></td>
+<td><p>Shift the zero-frequency component to the center of the spectrum.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.ifftshift.html#numpy.fft.ifftshift" title="numpy.fft.ifftshift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ifftshift</span></code></a>(x[, axes])</p></td>
+<td><p>The inverse of <cite>fftshift</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="background-information">
+<h3>Background information<a class="headerlink" href="#background-information" title="Permalink to this headline">¶</a></h3>
+<p>Fourier analysis is fundamentally a method for expressing a function as a
+sum of periodic components, and for recovering the function from those
+components.  When both the function and its Fourier transform are
+replaced with discretized counterparts, it is called the discrete Fourier
+transform (DFT).  The DFT has become a mainstay of numerical computing in
+part because of a very fast algorithm for computing it, called the Fast
+Fourier Transform (FFT), which was known to Gauss (1805) and was brought
+to light in its current form by Cooley and Tukey <a class="reference internal" href="#ct" id="id1"><span>[CT]</span></a>.  Press et al. <a class="reference internal" href="#nr" id="id2"><span>[NR]</span></a>
+provide an accessible introduction to Fourier analysis and its
+applications.</p>
+<p>Because the discrete Fourier transform separates its input into
+components that contribute at discrete frequencies, it has a great number
+of applications in digital signal processing, e.g., for filtering, and in
+this context the discretized input to the transform is customarily
+referred to as a <em>signal</em>, which exists in the <em>time domain</em>.  The output
+is called a <em>spectrum</em> or <em>transform</em> and exists in the <em>frequency
+domain</em>.</p>
+</div>
+<div class="section" id="implementation-details">
+<h3>Implementation details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h3>
+<p>There are many ways to define the DFT, varying in the sign of the
+exponent, normalization, etc.  In this implementation, the DFT is defined
+as</p>
+<div class="math notranslate nohighlight">
+\[A_k =  \sum_{m=0}^{n-1} a_m \exp\left\{-2\pi i{mk \over n}\right\}
+\qquad k = 0,\ldots,n-1.\]</div>
+<p>The DFT is in general defined for complex inputs and outputs, and a
+single-frequency component at linear frequency <span class="math notranslate nohighlight">\(f\)</span> is
+represented by a complex exponential
+<span class="math notranslate nohighlight">\(a_m = \exp\{2\pi i\,f m\Delta t\}\)</span>, where <span class="math notranslate nohighlight">\(\Delta t\)</span>
+is the sampling interval.</p>
+<p>The values in the result follow so-called “standard” order: If <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span>
+<span class="pre">fft(a,</span> <span class="pre">n)</span></code>, then <code class="docutils literal notranslate"><span class="pre">A[0]</span></code> contains the zero-frequency term (the sum of
+the signal), which is always purely real for real inputs. Then <code class="docutils literal notranslate"><span class="pre">A[1:n/2]</span></code>
+contains the positive-frequency terms, and <code class="docutils literal notranslate"><span class="pre">A[n/2+1:]</span></code> contains the
+negative-frequency terms, in order of decreasingly negative frequency.
+For an even number of input points, <code class="docutils literal notranslate"><span class="pre">A[n/2]</span></code> represents both positive and
+negative Nyquist frequency, and is also purely real for real input.  For
+an odd number of input points, <code class="docutils literal notranslate"><span class="pre">A[(n-1)/2]</span></code> contains the largest positive
+frequency, while <code class="docutils literal notranslate"><span class="pre">A[(n+1)/2]</span></code> contains the largest negative frequency.
+The routine <code class="docutils literal notranslate"><span class="pre">np.fft.fftfreq(n)</span></code> returns an array giving the frequencies
+of corresponding elements in the output.  The routine
+<code class="docutils literal notranslate"><span class="pre">np.fft.fftshift(A)</span></code> shifts transforms and their frequencies to put the
+zero-frequency components in the middle, and <code class="docutils literal notranslate"><span class="pre">np.fft.ifftshift(A)</span></code> undoes
+that shift.</p>
+<p>When the input <cite>a</cite> is a time-domain signal and <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">fft(a)</span></code>, <code class="docutils literal notranslate"><span class="pre">np.abs(A)</span></code>
+is its amplitude spectrum and <code class="docutils literal notranslate"><span class="pre">np.abs(A)**2</span></code> is its power spectrum.
+The phase spectrum is obtained by <code class="docutils literal notranslate"><span class="pre">np.angle(A)</span></code>.</p>
+<p>The inverse DFT is defined as</p>
+<div class="math notranslate nohighlight">
+\[a_m = \frac{1}{n}\sum_{k=0}^{n-1}A_k\exp\left\{2\pi i{mk\over n}\right\}
+\qquad m = 0,\ldots,n-1.\]</div>
+<p>It differs from the forward transform by the sign of the exponential
+argument and the default normalization by <span class="math notranslate nohighlight">\(1/n\)</span>.</p>
+</div>
+<div class="section" id="type-promotion">
+<h3>Type Promotion<a class="headerlink" href="#type-promotion" title="Permalink to this headline">¶</a></h3>
+<p><cite>numpy.fft</cite> promotes <code class="docutils literal notranslate"><span class="pre">float32</span></code> and <code class="docutils literal notranslate"><span class="pre">complex64</span></code> arrays to <code class="docutils literal notranslate"><span class="pre">float64</span></code> and
+<code class="docutils literal notranslate"><span class="pre">complex128</span></code> arrays respectively. For an FFT implementation that does not
+promote input arrays, see <cite>scipy.fftpack</cite>.</p>
+</div>
+<div class="section" id="normalization">
+<h3>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline">¶</a></h3>
+<p>The argument <code class="docutils literal notranslate"><span class="pre">norm</span></code> indicates which direction of the pair of direct/inverse
+transforms is scaled and with what normalization factor.
+The default normalization (<code class="docutils literal notranslate"><span class="pre">&quot;backward&quot;</span></code>) has the direct (forward) transforms
+unscaled and the inverse (backward) transforms scaled by <span class="math notranslate nohighlight">\(1/n\)</span>. It is
+possible to obtain unitary transforms by setting the keyword argument <code class="docutils literal notranslate"><span class="pre">norm</span></code>
+to <code class="docutils literal notranslate"><span class="pre">&quot;ortho&quot;</span></code> so that both direct and inverse transforms are scaled by
+<span class="math notranslate nohighlight">\(1/\sqrt{n}\)</span>. Finally, setting the keyword argument <code class="docutils literal notranslate"><span class="pre">norm</span></code> to
+<code class="docutils literal notranslate"><span class="pre">&quot;forward&quot;</span></code> has the direct transforms scaled by <span class="math notranslate nohighlight">\(1/n\)</span> and the inverse
+transforms unscaled (i.e. exactly opposite to the default <code class="docutils literal notranslate"><span class="pre">&quot;backward&quot;</span></code>).
+<cite>None</cite> is an alias of the default option <code class="docutils literal notranslate"><span class="pre">&quot;backward&quot;</span></code> for backward
+compatibility.</p>
+</div>
+<div class="section" id="real-and-hermitian-transforms">
+<h3>Real and Hermitian transforms<a class="headerlink" href="#real-and-hermitian-transforms" title="Permalink to this headline">¶</a></h3>
+<p>When the input is purely real, its transform is Hermitian, i.e., the
+component at frequency <span class="math notranslate nohighlight">\(f_k\)</span> is the complex conjugate of the
+component at frequency <span class="math notranslate nohighlight">\(-f_k\)</span>, which means that for real
+inputs there is no information in the negative frequency components that
+is not already available from the positive frequency components.
+The family of <cite>rfft</cite> functions is
+designed to operate on real inputs, and exploits this symmetry by
+computing only the positive frequency components, up to and including the
+Nyquist frequency.  Thus, <code class="docutils literal notranslate"><span class="pre">n</span></code> input points produce <code class="docutils literal notranslate"><span class="pre">n/2+1</span></code> complex
+output points.  The inverses of this family assumes the same symmetry of
+its input, and for an output of <code class="docutils literal notranslate"><span class="pre">n</span></code> points uses <code class="docutils literal notranslate"><span class="pre">n/2+1</span></code> input points.</p>
+<p>Correspondingly, when the spectrum is purely real, the signal is
+Hermitian.  The <cite>hfft</cite> family of functions exploits this symmetry by
+using <code class="docutils literal notranslate"><span class="pre">n/2+1</span></code> complex points in the input (time) domain for <code class="docutils literal notranslate"><span class="pre">n</span></code> real
+points in the frequency domain.</p>
+<p>In higher dimensions, FFTs are used, e.g., for image analysis and
+filtering.  The computational efficiency of the FFT means that it can
+also be a faster way to compute large convolutions, using the property
+that a convolution in the time domain is equivalent to a point-by-point
+multiplication in the frequency domain.</p>
+</div>
+<div class="section" id="higher-dimensions">
+<h3>Higher dimensions<a class="headerlink" href="#higher-dimensions" title="Permalink to this headline">¶</a></h3>
+<p>In two dimensions, the DFT is defined as</p>
+<div class="math notranslate nohighlight">
+\[A_{kl} =  \sum_{m=0}^{M-1} \sum_{n=0}^{N-1}
+a_{mn}\exp\left\{-2\pi i \left({mk\over M}+{nl\over N}\right)\right\}
+\qquad k = 0, \ldots, M-1;\quad l = 0, \ldots, N-1,\]</div>
+<p>which extends in the obvious way to higher dimensions, and the inverses
+in higher dimensions also extend in the same way.</p>
+</div>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<dl class="citation">
+<dt class="label" id="ct"><span class="brackets"><a class="fn-backref" href="#id1">CT</a></span></dt>
+<dd><p>Cooley, James W., and John W. Tukey, 1965, “An algorithm for the
+machine calculation of complex Fourier series,” <em>Math. Comput.</em>
+19: 297-301.</p>
+</dd>
+<dt class="label" id="nr"><span class="brackets"><a class="fn-backref" href="#id2">NR</a></span></dt>
+<dd><p>Press, W., Teukolsky, S., Vetterline, W.T., and Flannery, B.P.,
+2007, <em>Numerical Recipes: The Art of Scientific Computing</em>, ch.
+12-13.  Cambridge Univ. Press, Cambridge, UK.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>For examples, see the various functions.</p>
+<p class="rubric">Functions</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.fft.html#numpy.fft.fft" title="numpy.fft.fft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Compute the one-dimensional discrete Fourier Transform.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.fft2.html#numpy.fft.fft2" title="numpy.fft.fft2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fft2</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the 2-dimensional discrete Fourier Transform.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.fftfreq.html#numpy.fft.fftfreq" title="numpy.fft.fftfreq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fftfreq</span></code></a>(n[, d])</p></td>
+<td><p>Return the Discrete Fourier Transform sample frequencies.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.fftn.html#numpy.fft.fftn" title="numpy.fft.fftn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fftn</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the N-dimensional discrete Fourier Transform.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.fftshift.html#numpy.fft.fftshift" title="numpy.fft.fftshift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fftshift</span></code></a>(x[, axes])</p></td>
+<td><p>Shift the zero-frequency component to the center of the spectrum.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.hfft.html#numpy.fft.hfft" title="numpy.fft.hfft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hfft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Compute the FFT of a signal that has Hermitian symmetry, i.e., a real spectrum.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.ifft.html#numpy.fft.ifft" title="numpy.fft.ifft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ifft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Compute the one-dimensional inverse discrete Fourier Transform.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.ifft2.html#numpy.fft.ifft2" title="numpy.fft.ifft2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ifft2</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the 2-dimensional inverse discrete Fourier Transform.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.ifftn.html#numpy.fft.ifftn" title="numpy.fft.ifftn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ifftn</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the N-dimensional inverse discrete Fourier Transform.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.ifftshift.html#numpy.fft.ifftshift" title="numpy.fft.ifftshift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ifftshift</span></code></a>(x[, axes])</p></td>
+<td><p>The inverse of <cite>fftshift</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.ihfft.html#numpy.fft.ihfft" title="numpy.fft.ihfft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ihfft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Compute the inverse FFT of a signal that has Hermitian symmetry.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.irfft.html#numpy.fft.irfft" title="numpy.fft.irfft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">irfft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Computes the inverse of <cite>rfft</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.irfft2.html#numpy.fft.irfft2" title="numpy.fft.irfft2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">irfft2</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Computes the inverse of <cite>rfft2</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.irfftn.html#numpy.fft.irfftn" title="numpy.fft.irfftn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">irfftn</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Computes the inverse of <cite>rfftn</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.rfft.html#numpy.fft.rfft" title="numpy.fft.rfft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfft</span></code></a>(a[, n, axis, norm])</p></td>
+<td><p>Compute the one-dimensional discrete Fourier Transform for real input.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.rfft2.html#numpy.fft.rfft2" title="numpy.fft.rfft2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfft2</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the 2-dimensional FFT of a real array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/numpy.fft.rfftfreq.html#numpy.fft.rfftfreq" title="numpy.fft.rfftfreq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfftfreq</span></code></a>(n[, d])</p></td>
+<td><p>Return the Discrete Fourier Transform sample frequencies (for usage with rfft, irfft).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/numpy.fft.rfftn.html#numpy.fft.rfftn" title="numpy.fft.rfftn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfftn</span></code></a>(a[, s, axes, norm])</p></td>
+<td><p>Compute the N-dimensional discrete Fourier Transform for real input.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p class="rubric">Modules</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="numpy.fft.helper.html#module-numpy.fft.helper" title="numpy.fft.helper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.fft.helper</span></code></a></p></td>
+<td><p>Discrete Fourier Transforms - helper.py</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="numpy.fft.setup.html#module-numpy.fft.setup" title="numpy.fft.setup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.fft.setup</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="numpy.fft.tests.html#module-numpy.fft.tests" title="numpy.fft.tests"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.fft.tests</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "fedem-p/h5_tiff_converter",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./api/_autosummary"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="numpy.f2py.use_rules.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">numpy.f2py.use_rules</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="generated/numpy.fft.fft.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">numpy.fft.fft</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Federico Puppo<br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            Mantained by Federico Puppo
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
