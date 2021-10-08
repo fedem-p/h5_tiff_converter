@@ -1,14 +1,14 @@
-- file: index
+format: jb-book
+root: index
+parts:
+  - caption: Installation
+    chapters:
+    - file: path/to/part1/chapter1
 
-- section: Introduction
+  - caption: Tutorials
+    chapters:
     - file: 001_h5_to_single_tiff.ipynb
 
-- pasection: API
+  - caption: API
+    chapters:
     - file: api/index
-
-
-# format: jb-book
-# root: index
-# chapters:
-#   - file: 001_h5_to_single_tiff.ipynb
-#   - file: api/index
