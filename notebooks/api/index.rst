@@ -4,10 +4,9 @@ API Reference
 autosummary
 --------
 .. autosummary::
-   :toctree: _autosummary
+   :toctree: 
    :recursive:
 
-   h5tiff
    h5tiff.h5tiff
 
 
