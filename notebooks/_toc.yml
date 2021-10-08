@@ -3,7 +3,7 @@ root: index
 parts:
   - caption: Installation
     chapters:
-    - file: path/to/part1/chapter1
+    - file: installation
 
   - caption: Tutorials
     chapters:
