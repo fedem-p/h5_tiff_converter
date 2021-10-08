@@ -145,26 +145,26 @@ repository:
 
 #######################################################################################
 # Advanced and power-user settings
-sphinx:
-  extra_extensions:
-    - sphinx.ext.viewcode
-    - sphinx.ext.napoleon
-    - sphinx.ext.autodoc
-    - sphinx_autodoc_typehints
-    - sphinx.ext.autosummary
-    - sphinx.ext.intersphinx
-    - sphinx.ext.coverage
-    - sphinx.ext.inheritance_diagram
+# sphinx:
+#   extra_extensions:
+#     - sphinx.ext.viewcode
+#     - sphinx.ext.napoleon
+#     - sphinx.ext.autodoc
+#     - sphinx_autodoc_typehints
+#     - sphinx.ext.autosummary
+#     - sphinx.ext.intersphinx
+#     - sphinx.ext.coverage
+#     - sphinx.ext.inheritance_diagram
 
-  config:
-    autosummary_generate: True
-    autosummary_imported_members: True
-    templates_path:
-        - '_templates'
-    intersphinx_mapping:
-      python:
-        - "https://docs.python.org/3"
-        - null
-      numpy:
-        - "https://docs.scipy.org/doc/numpy/"
-        - null                  :   # key-value pairs to directly over-ride the Sphinx configuration
+#   config:
+#     autosummary_generate: True
+#     autosummary_imported_members: True
+#     templates_path:
+#         - '_templates'
+#     intersphinx_mapping:
+#       python:
+#         - "https://docs.python.org/3"
+#         - null
+#       numpy:
+#         - "https://docs.scipy.org/doc/numpy/"
+#         - null                  :   # key-value pairs to directly over-ride the Sphinx configuration
