@@ -5,7 +5,8 @@ parts:
     chapters:
     - file: installation
     - file: 001_h5_to_single_tiff.ipynb
-    
+
   - caption: API
     chapters:
     - file: api/index
+    - file: api/api2
