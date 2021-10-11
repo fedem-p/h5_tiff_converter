@@ -81,7 +81,8 @@ class H5File:
             except: 
                 raise SystemError("Couldn't load file in LFM mode!")
             
-        ############### add here any custom call to a mode specific function ##################
+            
+############### add here any custom call to a mode specific function ##################
 #         if self.mode == "<your mode>":
 #             try:
 #                 return <your loading function>()
@@ -151,6 +152,15 @@ class H5File:
                 print("Conversion completed")
             except: 
                 raise ValueError("Couldn't save LFM files!")     
+
+ ############### add here any custom call to a mode specific function ################## 
+        # if self.mode == "your_mode":
+        #     try:
+        #         self.your_convert_function()
+        #         print("Conversion completed")
+        #     except: 
+        #         raise ValueError("Couldn't save the files!")     
+
                 
                 
     def convert_LFM(self):
