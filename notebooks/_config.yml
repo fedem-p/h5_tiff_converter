@@ -147,11 +147,14 @@ repository:
 # Advanced and power-user settings
 sphinx:
   extra_extensions:
-    - 'sphinx.ext.autodoc'
-    - 'sphinx.ext.autosummary'
-    - 'sphinx.ext.viewcode'
-    - 'sphinx.ext.napoleon'
-    - 'sphinx.ext.githubpages'
+    - sphinx.ext.viewcode
+    - sphinx.ext.napoleon
+    - sphinx.ext.autodoc
+    - sphinx_autodoc_typehints
+    - sphinx.ext.autosummary
+    - sphinx.ext.intersphinx
+    - sphinx.ext.coverage
+    - sphinx.ext.inheritance_diagram
   config:
     autosummary_generate: True
     autosummary_imported_members: True
@@ -170,6 +173,14 @@ sphinx:
     #   'titles_only': False
     #   }
 
+
+    # - 'sphinx.ext.autodoc'
+    # - 'sphinx.ext.autosummary'
+    # - 'sphinx.ext.viewcode'
+    # - 'sphinx.ext.napoleon'
+    # - 'sphinx.ext.githubpages'
+
+    
     # html_static_path: 
     #     - '_static'
 
