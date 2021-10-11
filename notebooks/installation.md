@@ -74,14 +74,14 @@ To add a different mode to the code there are four modifications to be made:
     ```
 
 2. Then, you need to write a specific function to call for loading and converting the images.  You can add it at the end and use some of the previous code as a reference.
-    - [Load]() function:
+    - [Load](https://github.com/fedem-p/h5_tiff_converter/blob/772083c0e8c7ef8802d98ed32ca7855163a75854/h5tiff/h5tiff.py#L166-L190) function:
         - The funtion to load does't need any input beause the path to the h5 file is requested when creating the converter object.
         - It has to return the data (**list of images**) and metadata (**dictionary**)
-    - [Convert]() function:
+    - [Convert](https://github.com/fedem-p/h5_tiff_converter/blob/772083c0e8c7ef8802d98ed32ca7855163a75854/h5tiff/h5tiff.py#L166-L190) function:
         - It doesn't need any inputs, and it returns nothing
         - We suggest to make use of the `save_tiff` function, which requires an image, a metadata dictionary, a saving name, and a saving path.
 
-3. Finally, you need to connect the functions you wrote with the main processing pipeline.  Just copy the examples that you find commented [here]() (load), and [here]() (convert)
+3. Finally, you need to connect the functions you wrote with the main processing pipeline.  Just copy the examples that you find commented [here](https://github.com/fedem-p/h5_tiff_converter/blob/772083c0e8c7ef8802d98ed32ca7855163a75854/h5tiff/h5tiff.py#L85-L90) (load), and [here](https://github.com/fedem-p/h5_tiff_converter/blob/772083c0e8c7ef8802d98ed32ca7855163a75854/h5tiff/h5tiff.py#L156-L162) (convert)
 
 
 
