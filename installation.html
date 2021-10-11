@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Installation &#8212; H5TIFF</title>
+    <title>Getting Started &#8212; H5TIFF</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -89,7 +89,7 @@
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 current active nav-item">
  <a class="current reference internal nav-link" href="#">
-  Installation
+  Getting Started
  </a>
 </li>
 
@@ -147,9 +147,41 @@
               
               <div class="toc-item">
                 
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-and-customizing">
+   Using and Customizing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#default-mode">
+     Default mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lfm-mode">
+     LFM mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-your-own-mode">
+     Adding your own mode
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
 </nav>
               </div>
               
@@ -169,12 +201,89 @@
               
               <div>
                 
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You can easily install the package with <a class="reference external" href="https://pypi.org/project/h5tiff/">pypi</a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">pip</span> <span class="n">install</span> <span class="n">h5tiff</span>
 </pre></div>
 </div>
-<p>try</p>
+<p>or you can install it with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="n">path_to_h5tiff</span><span class="o">/</span><span class="n">h5tiff</span>
+</pre></div>
+</div>
+<p>which allows you to customize the converter to your needs (see an example <a class="reference external" href="#-adding-your-own-mode">here</a>).</p>
+</div>
+<div class="section" id="using-and-customizing">
+<h2>Using and Customizing<a class="headerlink" href="#using-and-customizing" title="Permalink to this headline">¶</a></h2>
+<p>This package was specifically written to be customized in order to process correctly differente h5 file strurctures:</p>
+<p>At the moment there’re only two modes:</p>
+<ul class="simple">
+<li><p>default</p></li>
+<li><p>LFM</p></li>
+</ul>
+<blockquote>
+<div><p><strong><font color='blue'>⚠  WARNING! </font></strong>
+<font color='blue'>The data used as input is supposed to be a list of images/stack which will be separated in single Tiff files. </font></p>
+</div></blockquote>
+<div class="section" id="default-mode">
+<h3>Default mode<a class="headerlink" href="#default-mode" title="Permalink to this headline">¶</a></h3>
+<p>This is a very crude mode that tries to accept various cases underneath it.</p>
+<p>The h5 file is opened expeting to find the data in a dictionary format, where the ‘Data’  key is where the data is stored.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>    <span class="n">yourdata</span> <span class="o">=</span> <span class="n">h5file</span><span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">]</span> 
+</pre></div>
+</div>
+<p>Any other key is instead considered as metadata and inserted in a single dictionary.
+When the pictures are saved as Tiff files the metadata is added to each one.</p>
+</div>
+<div class="section" id="lfm-mode">
+<h3>LFM mode<a class="headerlink" href="#lfm-mode" title="Permalink to this headline">¶</a></h3>
+<p>This a specific mode which expects the data in the following format:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>    <span class="n">yourdata</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;Data&#39;</span><span class="p">:</span> <span class="n">list_of_images</span><span class="p">,</span>
+                <span class="s1">&#39;motorData&#39;</span> <span class="o">=</span> <span class="n">motorData</span><span class="p">,</span>
+                <span class="s1">&#39;metadata&#39;</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">,</span>
+                <span class="s1">&#39;img_time&#39;</span> <span class="o">=</span> <span class="n">img_time</span><span class="p">,</span>
+                <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>where <code class="docutils literal notranslate"><span class="pre">motorData</span></code> is a list of information regarding the position of the stage motors of the light field microscope. When the tiff file is saved only the correct position is attached as metadata.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code> is general information and specifics about the whole set of images. This information is attached to every tiff file.</p></li>
+<li><p>Finally, <code class="docutils literal notranslate"><span class="pre">img_time</span></code> is a 2D list of time stamps (one before the picture was taken, one after).<br />
+Only the times corresponding to a specific image are attached in the metadata of that image.</p></li>
+</ul>
+</div>
+<div class="section" id="adding-your-own-mode">
+<h3>Adding your own mode<a class="headerlink" href="#adding-your-own-mode" title="Permalink to this headline">¶</a></h3>
+<p>To add a different mode to the code there are four modifications to be made:</p>
+<ol>
+<li><p>You need to add the name of your mode <a class="reference external" href="https://github.com/fedem-p/h5_tiff_converter/blob/fd29d512683deaa8c37f982b3f865ff652a7a370/h5tiff/h5tiff.py#L14">here</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MODES</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;LFM&quot;</span><span class="p">,</span> <span class="s2">&quot;DEFAULT&quot;</span><span class="p">,</span> <span class="s2">&quot;ADD_HERE_YOUR_MODE_NAME&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Then, you need to write a specific function to call for loading and converting the images.  You can add it at the end and use some of the previous code as a reference.</p>
+<ul class="simple">
+<li><p><span class="xref myst">Load</span> function:</p>
+<ul>
+<li><p>The funtion to load does’t need any input beause the path to the h5 file is requested when creating the converter object.</p></li>
+<li><p>It has to return the data (<strong>list of images</strong>) and metadata (<strong>dictionary</strong>)</p></li>
+</ul>
+</li>
+<li><p><span class="xref myst">Convert</span> function:</p>
+<ul>
+<li><p>It doesn’t need any inputs, and it returns nothing</p></li>
+<li><p>We suggest to make use of the <code class="docutils literal notranslate"><span class="pre">save_tiff</span></code> function, which requires an image, a metadata dictionary, a saving name, and a saving path.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Finally, you need to connect the functions you wrote with the main processing pipeline.  Just copy the examples that you find commented <span class="xref myst">here</span> (load), and <span class="xref myst">here</span> (convert)</p></li>
+</ol>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
