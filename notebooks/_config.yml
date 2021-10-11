@@ -155,7 +155,7 @@ sphinx:
   config:
     autosummary_generate: True
     autosummary_imported_members: True
-    html_theme: 'sphinx_rtd_theme'
+    html_theme: 'pydata_sphinx_theme'
     templates_path:
         - '_templates'
 
