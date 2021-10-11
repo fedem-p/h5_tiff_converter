@@ -99,7 +99,7 @@
 
 
 
-<div class="viewcode-block" id="H5File"><a class="viewcode-back" href="../../api/_autosummary/h5tiff.h5tiff.H5File.html#h5tiff.h5tiff.H5File">[docs]</a><span class="k">class</span> <span class="nc">H5File</span><span class="p">:</span>
+<div class="viewcode-block" id="H5File"><a class="viewcode-back" href="../../api/h5tiff.h5tiff.H5File.html#h5tiff.h5tiff.H5File">[docs]</a><span class="k">class</span> <span class="nc">H5File</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">save_name</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s2">&quot;LFM&quot;</span><span class="p">):</span>
         
         <span class="c1"># checks for the data</span>
@@ -128,7 +128,7 @@
         
         
         
-<div class="viewcode-block" id="H5File.load_data"><a class="viewcode-back" href="../../api/_autosummary/h5tiff.h5tiff.H5File.html#h5tiff.h5tiff.H5File.load_data">[docs]</a>    <span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="H5File.load_data"><a class="viewcode-back" href="../../api/h5tiff.h5tiff.H5File.html#h5tiff.h5tiff.H5File.load_data">[docs]</a>    <span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        loads only the data from the H5 file</span>
 <span class="sd">        it calls different functions depending on the mode:</span>
@@ -174,7 +174,7 @@
     
        
         
-<div class="viewcode-block" id="H5File.load_LFM"><a class="viewcode-back" href="../../api/_autosummary/h5tiff.h5tiff.H5File.html#h5tiff.h5tiff.H5File.load_LFM">[docs]</a>    <span class="k">def</span> <span class="nf">load_LFM</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="H5File.load_LFM"><a class="viewcode-back" href="../../api/h5tiff.h5tiff.H5File.html#h5tiff.h5tiff.H5File.load_LFM">[docs]</a>    <span class="k">def</span> <span class="nf">load_LFM</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        specific load function to load the h5 file data</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -199,7 +199,7 @@
         <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">],</span><span class="n">metadata</span></div>
     
     
-<div class="viewcode-block" id="H5File.convert"><a class="viewcode-back" href="../../api/_autosummary/h5tiff.h5tiff.H5File.html#h5tiff.h5tiff.H5File.convert">[docs]</a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="H5File.convert"><a class="viewcode-back" href="../../api/h5tiff.h5tiff.H5File.html#h5tiff.h5tiff.H5File.convert">[docs]</a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Saves each picture in a single tiff file with metadata</span>
@@ -268,7 +268,7 @@
     
     
     
-<div class="viewcode-block" id="save_tiff"><a class="viewcode-back" href="../../api/_autosummary/h5tiff.h5tiff.html#h5tiff.h5tiff.save_tiff">[docs]</a><span class="k">def</span> <span class="nf">save_tiff</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="save_tiff"><a class="viewcode-back" href="../../api/h5tiff.h5tiff.html#h5tiff.h5tiff.save_tiff">[docs]</a><span class="k">def</span> <span class="nf">save_tiff</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate save name and save tiff file</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -285,7 +285,7 @@
 
 
 
-<div class="viewcode-block" id="get_args"><a class="viewcode-back" href="../../api/_autosummary/h5tiff.h5tiff.html#h5tiff.h5tiff.get_args">[docs]</a><span class="k">def</span> <span class="nf">get_args</span><span class="p">():</span>
+<div class="viewcode-block" id="get_args"><a class="viewcode-back" href="../../api/h5tiff.h5tiff.html#h5tiff.h5tiff.get_args">[docs]</a><span class="k">def</span> <span class="nf">get_args</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    unpack the arguments passed to the script</span>
 <span class="sd">    &quot;&quot;&quot;</span>
