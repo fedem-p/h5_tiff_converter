@@ -9,4 +9,3 @@ parts:
   - caption: API
     chapters:
     - file: api/index
-    - file: api/api2
