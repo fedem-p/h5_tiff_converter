@@ -1,4 +1,4 @@
 jupyter-book
 jupytext
 sphinx_autodoc_typehints
-
+sphinx-rtd-theme
