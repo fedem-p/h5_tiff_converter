@@ -22,7 +22,7 @@ file = H5File(master_folder,save_name,mode)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1778/442449216.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_1834/442449216.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mfile[0m [0;34m=[0m [0mH5File[0m[0;34m([0m[0mmaster_folder[0m[0;34m,[0m[0msave_name[0m[0;34m,[0m[0mmode[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;31mNameError[0m: name 'H5File' is not defined
