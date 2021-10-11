@@ -165,6 +165,12 @@ sphinx:
       'prev_next_buttons_location': 'bottom',
       'collapse_navigation': True,
       'sticky_navigation': True}
+
+    html_static_path: 
+        - '_static'
+
+    add_css_file: 
+      - 'customize.css'
       
     
 
