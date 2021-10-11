@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>h5tiff.h5tiff &mdash; H5TIFF</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>h5tiff.h5tiff.H5File &mdash; H5TIFF</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
@@ -33,8 +33,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="h5tiff.h5tiff.Bar" href="h5tiff.h5tiff.Bar.html" />
-    <link rel="prev" title="API Reference" href="../index.html" /> 
+    <link rel="next" title="h5tiff.h5tiff.Path" href="h5tiff.h5tiff.Path.html" />
+    <link rel="prev" title="h5tiff.h5tiff.Bar" href="h5tiff.h5tiff.Bar.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,9 +60,9 @@
 <p class="caption"><span class="caption-text">API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">h5tiff.h5tiff</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="h5tiff.h5tiff.html">h5tiff.h5tiff</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="h5tiff.h5tiff.Bar.html">h5tiff.h5tiff.Bar</a></li>
-<li class="toctree-l3"><a class="reference internal" href="h5tiff.h5tiff.H5File.html">h5tiff.h5tiff.H5File</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">h5tiff.h5tiff.H5File</a></li>
 <li class="toctree-l3"><a class="reference internal" href="h5tiff.h5tiff.Path.html">h5tiff.h5tiff.Path</a></li>
 </ul>
 </li>
@@ -85,9 +85,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">API Reference</a> &raquo;</li>
-      <li>h5tiff.h5tiff</li>
+          <li><a href="h5tiff.h5tiff.html">h5tiff.h5tiff</a> &raquo;</li>
+      <li>h5tiff.h5tiff.H5File</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/api/_autosummary/h5tiff.h5tiff.rst" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api/_autosummary/h5tiff.h5tiff.H5File.rst" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -95,37 +96,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-h5tiff.h5tiff">
-<span id="h5tiff-h5tiff"></span><h1>h5tiff.h5tiff<a class="headerlink" href="#module-h5tiff.h5tiff" title="Permalink to this headline">¶</a></h1>
-<p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="h5tiff.h5tiff.Bar.html#h5tiff.h5tiff.Bar" title="h5tiff.h5tiff.Bar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bar</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="h5tiff.h5tiff.H5File.html#h5tiff.h5tiff.H5File" title="h5tiff.h5tiff.H5File"><code class="xref py py-obj docutils literal notranslate"><span class="pre">H5File</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="h5tiff.h5tiff.Path.html#h5tiff.h5tiff.Path" title="h5tiff.h5tiff.Path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Path</span></code></a></p></td>
-<td><p>PurePath subclass that can make system calls.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="h5tiff.h5tiff.get_args">
-<code class="sig-prename descclassname"><span class="pre">h5tiff.h5tiff.</span></code><code class="sig-name descname"><span class="pre">get_args</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/h5tiff/h5tiff.html#get_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.get_args" title="Permalink to this definition">¶</a></dt>
-<dd><p>unpack the arguments passed to the script</p>
+  <div class="section" id="h5tiff-h5tiff-h5file">
+<h1>h5tiff.h5tiff.H5File<a class="headerlink" href="#h5tiff-h5tiff-h5file" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="h5tiff.h5tiff.H5File">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">h5tiff.h5tiff.</span></code><code class="sig-name descname"><span class="pre">H5File</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LFM'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/h5tiff/h5tiff.html#H5File"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Methods</p>
+<dl class="py method">
+<dt id="h5tiff.h5tiff.H5File.convert">
+<code class="sig-name descname"><span class="pre">convert</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/h5tiff/h5tiff.html#H5File.convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File.convert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves each picture in a single tiff file with metadata</p>
 </dd></dl>
 
-<dl class="py function">
-<dt id="h5tiff.h5tiff.save_tiff">
-<code class="sig-prename descclassname"><span class="pre">h5tiff.h5tiff.</span></code><code class="sig-name descname"><span class="pre">save_tiff</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/h5tiff/h5tiff.html#save_tiff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.save_tiff" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate save name and save tiff file</p>
+<dl class="py method">
+<dt id="h5tiff.h5tiff.H5File.load_LFM">
+<code class="sig-name descname"><span class="pre">load_LFM</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/h5tiff/h5tiff.html#H5File.load_LFM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File.load_LFM" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific load function to load the h5 file data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="h5tiff.h5tiff.H5File.load_data">
+<code class="sig-name descname"><span class="pre">load_data</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/h5tiff/h5tiff.html#H5File.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File.load_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>loads only the data from the H5 file
+it calls different functions depending on the mode:
+in this way it can be customized for any kind of h5 structure</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -153,8 +150,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="h5tiff.h5tiff.Bar.html" class="btn btn-neutral float-right" title="h5tiff.h5tiff.Bar" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="h5tiff.h5tiff.Bar.html" class="btn btn-neutral float-left" title="h5tiff.h5tiff.Bar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="h5tiff.h5tiff.Path.html" class="btn btn-neutral float-right" title="h5tiff.h5tiff.Path" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
