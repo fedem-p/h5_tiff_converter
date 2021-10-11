@@ -266,13 +266,13 @@ Only the times corresponding to a specific image are attached in the metadata of
 </li>
 <li><p>Then, you need to write a specific function to call for loading and converting the images.  You can add it at the end and use some of the previous code as a reference.</p>
 <ul class="simple">
-<li><p><span class="xref myst">Load</span> function:</p>
+<li><p><a class="reference external" href="https://github.com/fedem-p/h5_tiff_converter/blob/772083c0e8c7ef8802d98ed32ca7855163a75854/h5tiff/h5tiff.py#L166-L190">Load</a> function:</p>
 <ul>
 <li><p>The funtion to load does’t need any input beause the path to the h5 file is requested when creating the converter object.</p></li>
 <li><p>It has to return the data (<strong>list of images</strong>) and metadata (<strong>dictionary</strong>)</p></li>
 </ul>
 </li>
-<li><p><span class="xref myst">Convert</span> function:</p>
+<li><p><a class="reference external" href="https://github.com/fedem-p/h5_tiff_converter/blob/772083c0e8c7ef8802d98ed32ca7855163a75854/h5tiff/h5tiff.py#L166-L190">Convert</a> function:</p>
 <ul>
 <li><p>It doesn’t need any inputs, and it returns nothing</p></li>
 <li><p>We suggest to make use of the <code class="docutils literal notranslate"><span class="pre">save_tiff</span></code> function, which requires an image, a metadata dictionary, a saving name, and a saving path.</p></li>
@@ -280,7 +280,7 @@ Only the times corresponding to a specific image are attached in the metadata of
 </li>
 </ul>
 </li>
-<li><p>Finally, you need to connect the functions you wrote with the main processing pipeline.  Just copy the examples that you find commented <span class="xref myst">here</span> (load), and <span class="xref myst">here</span> (convert)</p></li>
+<li><p>Finally, you need to connect the functions you wrote with the main processing pipeline.  Just copy the examples that you find commented <a class="reference external" href="https://github.com/fedem-p/h5_tiff_converter/blob/772083c0e8c7ef8802d98ed32ca7855163a75854/h5tiff/h5tiff.py#L85-L90">here</a> (load), and <a class="reference external" href="https://github.com/fedem-p/h5_tiff_converter/blob/772083c0e8c7ef8802d98ed32ca7855163a75854/h5tiff/h5tiff.py#L156-L162">here</a> (convert)</p></li>
 </ol>
 </div>
 </div>
