@@ -120,7 +120,6 @@ class H5File:
     
     def convert(self):
         """
-
         Saves each picture in a single tiff file with metadata
         """
         
@@ -164,6 +163,9 @@ class H5File:
                 
                 
     def convert_LFM(self):
+        """
+        Specific function to convert the lfm pictures
+        """
         try:
             L = len(self.data)
 
