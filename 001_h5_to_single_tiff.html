@@ -185,7 +185,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1670</span><span class="o">/</span><span class="mf">3490827386.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1671</span><span class="o">/</span><span class="mf">3490827386.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#import package</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">h5tiff.h5tiff</span> <span class="kn">import</span> <span class="o">*</span>
@@ -208,25 +208,34 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">master_folder</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;/mnt/data/testing/2021_09_30_f0_line_52.h5&quot;</span>
 <span class="n">save_name</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
 <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;LFM&quot;</span>
+<span class="n">save_folder</span> <span class="o">=</span> <span class="s2">&quot;subfolder&quot;</span>   <span class="c1"># or -&gt; &quot;Path(&quot;/my/path&quot;)&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="n">H5File</span><span class="p">(</span><span class="n">master_folder</span><span class="p">,</span><span class="n">save_name</span><span class="p">,</span><span class="n">mode</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="n">H5File</span><span class="p">(</span><span class="n">master_folder</span><span class="p">,</span><span class="n">save_name</span><span class="p">,</span><span class="n">mode</span><span class="p">,</span> <span class="n">save_folder</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span><span class="o">.</span><span class="n">mode</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>  <span class="n">file</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">save_name</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">save_folder</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;LFM&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;motorData&#39;, &#39;metadata&#39;, &#39;img_time&#39;]) 
+ LFM 
+ /mnt/data/testing/2021_09_30_f0_line_52.h5 
+ test 
+ subfolder
 </pre></div>
 </div>
 </div>
