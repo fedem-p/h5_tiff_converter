@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -35,17 +35,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -212,31 +212,31 @@
   <div class="section" id="h5tiff-h5tiff-h5file">
 <h1>h5tiff.h5tiff.H5File<a class="headerlink" href="#h5tiff-h5tiff-h5file" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="h5tiff.h5tiff.H5File">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">h5tiff.h5tiff.</span></code><code class="sig-name descname"><span class="pre">H5File</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LFM'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/h5tiff/h5tiff.html#H5File"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="h5tiff.h5tiff.H5File">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">h5tiff.h5tiff.</span></span><span class="sig-name descname"><span class="pre">H5File</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LFM'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/h5tiff/h5tiff.html#H5File"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p class="rubric">Methods</p>
 <dl class="py method">
-<dt id="h5tiff.h5tiff.H5File.convert">
-<code class="sig-name descname"><span class="pre">convert</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/h5tiff/h5tiff.html#H5File.convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File.convert" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="h5tiff.h5tiff.H5File.convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/h5tiff/h5tiff.html#H5File.convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File.convert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves each picture in a single tiff file with metadata</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="h5tiff.h5tiff.H5File.convert_LFM">
-<code class="sig-name descname"><span class="pre">convert_LFM</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/h5tiff/h5tiff.html#H5File.convert_LFM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File.convert_LFM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="h5tiff.h5tiff.H5File.convert_LFM">
+<span class="sig-name descname"><span class="pre">convert_LFM</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/h5tiff/h5tiff.html#H5File.convert_LFM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File.convert_LFM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specific function to convert the lfm pictures</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="h5tiff.h5tiff.H5File.load_LFM">
-<code class="sig-name descname"><span class="pre">load_LFM</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/h5tiff/h5tiff.html#H5File.load_LFM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File.load_LFM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="h5tiff.h5tiff.H5File.load_LFM">
+<span class="sig-name descname"><span class="pre">load_LFM</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/h5tiff/h5tiff.html#H5File.load_LFM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File.load_LFM" title="Permalink to this definition">¶</a></dt>
 <dd><p>specific load function to load the h5 file data</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="h5tiff.h5tiff.H5File.load_data">
-<code class="sig-name descname"><span class="pre">load_data</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/h5tiff/h5tiff.html#H5File.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File.load_data" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="h5tiff.h5tiff.H5File.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/h5tiff/h5tiff.html#H5File.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#h5tiff.h5tiff.H5File.load_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>loads only the data from the H5 file
 it calls different functions depending on the mode:
 in this way it can be customized for any kind of h5 structure</p>
@@ -295,7 +295,7 @@ in this way it can be customized for any kind of h5 structure</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
 </p>
     </div>
     
