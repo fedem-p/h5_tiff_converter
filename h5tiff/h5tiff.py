@@ -3,7 +3,7 @@ import os
 import flammkuchen as fl
 import tifffile as tiff
 import numpy as np
-from progress.bar import Bar
+import tqdm
 from pathlib import Path
 
 
@@ -105,9 +105,9 @@ class H5File:
             metadata['img_time'] = data['img_time']
 
             #fix - not writable in json
-            metadata['metadata']['ranges'] = str(meta['ranges'])
-            metadata['metadata']['steps'] = str(meta['steps'])
-            metadata['metadata']['fish_n'] = str(meta['fish_n'])
+            metadata['metadata']['ranges'] = str(metadata['metadata']['ranges'])
+            metadata['metadata']['steps'] = str(metadata['metadata']['steps'])
+            metadata['metadata']['fish_n'] = str(metadata['metadata']['fish_n'])
             
             
         except: 
@@ -131,14 +131,18 @@ class H5File:
                 raise ValueError("Data doesn't have length!")
             
             try:
-                bar = Bar('Saving:', max = L)
+                pbar = tqdm.tqdm(total = L, desc = "Saving: ")
                 for i, im in enumerate(self.data):
 
                     name = self.save_name + "_Pic" +  str(i) +'.tif'
 
                     save_tiff(im, self.metadata, self.path, name)   
-                    bar.next()
+                    pbar.update(1)
+
+                pbar.close()
                 print("Conversion completed")
+
+                
             except: 
                 raise ValueError("Couldn't save files!")
     
@@ -171,21 +175,24 @@ class H5File:
             raise ValueError("Data doesn't have length!")
             
         try:
-            bar = Bar('Saving:', max = L)
+            
+            pbar = tqdm.tqdm(total = L, desc = "Saving: ")
             
             for i, im in enumerate(self.data):
 
-                name = save_pre + "_Pic" +  str(i) +'.tif'
+                name = self.save_name + "_Pic" +  str(i) +'.tif'
                    
-                meta =  {'setup': metadata['metadata'],
-                            'motors': metadata['motorData'][i],
-                            'stamps': [metadata['img_time'][0][i],metadata['img_time'][1][i]]
+                meta =  {'setup': self.metadata['metadata'],
+                            'motors': self.metadata['motorData'][i],
+                            'stamps': [self.metadata['img_time'][0][i],self.metadata['img_time'][1][i]]
                             } 
                     
                     
                 save_tiff(im, meta, self.path, name)   
-                bar.next()
-            print("Conversion completed")
+                pbar.update(1)
+            pbar.close()
+            
+            
         except: 
             raise ValueError("Couldn't save files!")
     
@@ -235,17 +242,17 @@ def get_args():
 
         
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    try:
-        arg_list = get_args()
+#     try:
+#         arg_list = get_args()
 
-        print("Loading")
-        file = H5File(*arg_list)
+#         print("Loading")
+#         file = H5File(*arg_list)
         
-        print("Start Converting")
-        file.convert()
+#         print("Start Converting")
+#         file.convert()
 
-    except:
-        raise ValueError("Coudln't save pictures!")
+#     except:
+#         raise ValueError("Coudln't save pictures!")
 
