@@ -17,14 +17,27 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-file = H5File(master_folder,save_name,mode)
+#import package
+
+from h5tiff.h5tiff import *
+import flammkuchen as fl
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1681/442449216.py[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0mfile[0m [0;34m=[0m [0mH5File[0m[0;34m([0m[0mmaster_folder[0m[0;34m,[0m[0msave_name[0m[0;34m,[0m[0mmode[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mNameError[0m: name 'H5File' is not defined
-NameError: name 'H5File' is not defined
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m/tmp/ipykernel_1670/3490827386.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#import package[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mh5tiff[0m[0;34m.[0m[0mh5tiff[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;32mimport[0m [0mflammkuchen[0m [0;32mas[0m [0mfl[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/work/h5_tiff_converter/h5_tiff_converter/h5tiff/h5tiff.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mimport[0m [0mtifffile[0m [0;32mas[0m [0mtiff[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mtqdm[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfrom[0m [0mpathlib[0m [0;32mimport[0m [0mPath[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tqdm'
+ModuleNotFoundError: No module named 'tqdm'
 
