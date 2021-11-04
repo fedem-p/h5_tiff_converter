@@ -16,7 +16,7 @@ MODES = ("LFM", "DEFAULT")  #add here any mode you'd like to create
 
 
 class H5File:
-    def __init__(self, path, save_name, mode ="LFM"):
+    def __init__(self, path, save_name, mode ="LFM", save_folder = "tiff"):
         
         # checks for the data
         if not os.path.exists(Path(path)):
@@ -38,6 +38,8 @@ class H5File:
         self.save_name = save_name
         
         self.mode = mode
+
+        self.save_folder = save_folder
         
         self.data, self.metadata  = self.load_data()
         
@@ -60,15 +62,22 @@ class H5File:
             
             
             metadata = {}
-            
-            for key in data:
-                if key != "Data":
-                    try:
-                        metadata[key] = str(data[key])
-                    except:
-                        print("couldn't interpret {} as metadata".format(key))
-            
-            return data['Data'], metadata
+
+            if len(data.keys()) > 1:
+                
+                for key in data:
+                    if key != "Data":
+                        try:
+                            metadata[key] = str(data[key])
+                        except:
+                            print("couldn't interpret {} as metadata".format(key))
+                
+                return data['Data'], metadata
+
+            elif len(data.keys()) == 1:
+                return data[list(data.keys())[0]], metadata
+            else:
+                raise ValueError("file is empty!")
        
         ### LFM mode ###
         
@@ -136,7 +145,7 @@ class H5File:
 
                     name = self.save_name + "_Pic" +  str(i) +'.tif'
 
-                    save_tiff(im, self.metadata, self.path, name)   
+                    save_tiff(im, self.metadata, self.path, name, self.save_folder)   
                     pbar.update(1)
 
                 pbar.close()
@@ -152,7 +161,9 @@ class H5File:
                 self.convert_LFM()
                 print("Conversion completed")
             except: 
-                raise ValueError("Couldn't save LFM files!")     
+                raise ValueError("Couldn't save LFM files!")   
+
+          
 
  ############### add here any custom call to a mode specific function ################## 
         # if self.mode == "your_mode":
@@ -188,7 +199,7 @@ class H5File:
                             } 
                     
                     
-                save_tiff(im, meta, self.path, name)   
+                save_tiff(im, meta, self.path, name, self.save_folder)  
                 pbar.update(1)
             pbar.close()
             
@@ -203,12 +214,14 @@ class H5File:
     
     
     
-def save_tiff(image, metadata, path, name):
+def save_tiff(image, metadata, path, name, save_folder):
     """
     Generate save name and save tiff file
     """
-    folder = "tiff"
-    save_location = os.path.join(os.path.dirname(path), folder)
+    if isinstance(save_folder, pathlib.Path):
+        save_location = save_folder
+    else:
+        save_location = os.path.join(os.path.dirname(path), save_folder)
 
     if not os.path.exists(save_location):
         os.mkdir(save_location)

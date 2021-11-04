@@ -16,7 +16,7 @@ setup(
     description='a flexible converter to extract tiff files from h5',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version='0.3.4',
+    version='0.3.7',
     author='Federico Puppo',
     author_email='federico.puppo@tum.de',
     url='https://github.com/fedem-p/h5_tiff_converter',
